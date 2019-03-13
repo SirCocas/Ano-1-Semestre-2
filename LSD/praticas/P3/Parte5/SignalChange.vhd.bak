@@ -1,0 +1,7 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+
+entity SignalChange is
+	port(inputs : in std_logic_vector(3 downto 0);
+	      outputs1, outputs0: out std_logic_vector(3 downto 0));
+end SignalChange;

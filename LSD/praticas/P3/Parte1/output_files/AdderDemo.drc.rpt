@@ -1,0 +1,208 @@
+Design Assistant report for AdderDemo
+Wed Mar 06 15:37:43 2019
+Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Design Assistant Summary
+  3. Design Assistant Settings
+  4. Information only Violations
+  5. Design Assistant Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++-------------------------------------------------------------------------+
+; Design Assistant Summary                                                ;
++-----------------------------------+-------------------------------------+
+; Design Assistant Status           ; Analyzed - Wed Mar 06 15:37:43 2019 ;
+; Revision Name                     ; AdderDemo                           ;
+; Top-level Entity Name             ; AdderDemo                           ;
+; Family                            ; Cyclone IV E                        ;
+; Total Critical Violations         ; 0                                   ;
+; Total High Violations             ; 0                                   ;
+; Total Medium Violations           ; 0                                   ;
+; Total Information only Violations ; 28                                  ;
+; - Rule T102                       ; 28                                  ;
++-----------------------------------+-------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Design Assistant Settings                                                                                                                                                                ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Option                                                                                                                                                               ; Setting      ; To ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+; Design Assistant mode                                                                                                                                                ; Post-Fitting ;    ;
+; Threshold value for clock net not mapped to clock spines rule                                                                                                        ; 25           ;    ;
+; Minimum number of clock port feed by gated clocks                                                                                                                    ; 30           ;    ;
+; Minimum number of node fan-out                                                                                                                                       ; 30           ;    ;
+; Maximum number of nodes to report                                                                                                                                    ; 50           ;    ;
+; Rule C101: Gated clock should be implemented according to the Intel FPGA standard scheme                                                                             ; On           ;    ;
+; Rule C102: Logic cell should not be used to generate an inverted clock signal                                                                                        ; On           ;    ;
+; Rule C103: Gated clock does not feed at least a pre-defined number of clock ports to effectively save power                                                          ; On           ;    ;
+; Rule C104: Clock signal source should drive only clock input ports                                                                                                   ; On           ;    ;
+; Rule C105: Clock signal should be a global signal                                                                                                                    ; On           ;    ;
+; Rule C106: Clock signal source should not drive registers triggered by different clock edges                                                                         ; On           ;    ;
+; Rule R101: Combinational logic used as a reset signal should be synchronized                                                                                         ; On           ;    ;
+; Rule R102: External reset signals should be synchronized using two cascaded registers                                                                                ; On           ;    ;
+; Rule R103: External reset signal should be correctly synchronized                                                                                                    ; On           ;    ;
+; Rule R104: The reset signal that is generated in one clock domain and used in another clock domain should be correctly synchronized                                  ; On           ;    ;
+; Rule R105: The reset signal that is generated in one clock domain and used in another clock domain should be synchronized                                            ; On           ;    ;
+; Rule T101: Nodes with more than the specified number of fan-outs                                                                                                     ; On           ;    ;
+; Rule T102: Top nodes with the highest number of fan-outs                                                                                                             ; On           ;    ;
+; Rule A101: Design should not contain combinational loops                                                                                                             ; On           ;    ;
+; Rule A102: Register output should not drive its own control signal directly or through combinational logic                                                           ; On           ;    ;
+; Rule A103: Design should not contain delay chains                                                                                                                    ; On           ;    ;
+; Rule A104: Design should not contain ripple clock structures                                                                                                         ; On           ;    ;
+; Rule A105: Pulses should not be implemented asynchronously                                                                                                           ; On           ;    ;
+; Rule A106: Multiple pulses should not be generated in design                                                                                                         ; On           ;    ;
+; Rule A107: Design should not contain SR latches                                                                                                                      ; On           ;    ;
+; Rule A108: Design should not contain latches                                                                                                                         ; On           ;    ;
+; Rule S101: Output enable and input of the same tri-state node should not be driven by same signal source                                                             ; On           ;    ;
+; Rule S102: Synchronous port and asynchronous port of the same register should not be driven by the same signal source                                                ; On           ;    ;
+; Rule S103: More than one asynchronous port of a register should not be driven by the same signal source                                                              ; On           ;    ;
+; Rule S104: Clock port and any other port of a register should not be driven by the same signal source                                                                ; On           ;    ;
+; Rule D101: Data bits are not synchronized when transferred between asynchronous clock domains                                                                        ; On           ;    ;
+; Rule D102: Multiple data bits that are transferred across asynchronous clock domains are synchronized, but not all bits may be aligned in the receiving clock domain ; On           ;    ;
+; Rule D103: Data bits are not correctly synchronized when transferred between asynchronous clock domains                                                              ; On           ;    ;
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+----+
+
+
++-------------------------------------------------------------------------------------------+
+; Information only Violations                                                               ;
++----------------------------------------------------------+----------------------+---------+
+; Rule name                                                ; Name                 ; Fan-Out ;
++----------------------------------------------------------+----------------------+---------+
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~8  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~5  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[11]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~9  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~10 ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; KEY[0]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~6  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[15]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[10]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~7  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[16]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[14]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~2  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~3  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~1  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[12]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~11 ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~12 ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~0  ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[13]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; SW[17]               ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~13 ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; AddSub4:inst|Add0~14 ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[14]~output      ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[13]~output      ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[12]~output      ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[11]~output      ; 1       ;
+; Rule T102: Top nodes with the highest number of fan-outs ; LEDR[10]~output      ; 1       ;
++----------------------------------------------------------+----------------------+---------+
+
+
++---------------------------+
+; Design Assistant Messages ;
++---------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Design Assistant
+    Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+    Info: Processing started: Wed Mar 06 15:37:42 2019
+Info: Command: quartus_drc AdderDemo -c AdderDemo
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (332104): Reading SDC File: 'master.sdc'
+Warning (332174): Ignored filter at master.sdc(19): clock_50 could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 19
+Warning (332049): Ignored create_clock at master.sdc(19): Argument <targets> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 19
+    Info (332050): create_clock -name clock_50 -period 20.000 [get_ports clock_50] File: C:/LSD/P3/Parte1/master.sdc Line: 19
+Info (332151): Clock uncertainty is not calculated until you update the timing netlist.
+Warning (332174): Ignored filter at master.sdc(37): aud_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): i2c_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): irda_rxd could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): key[*] could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): lcd_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): ps2_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): sram_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): sw[*] could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(37): clock_50 could not be matched with a clock File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332049): Ignored set_false_path at master.sdc(37): Argument <from> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 37
+    Info (332050): set_false_path -from [get_ports { aud_* i2c_* irda_rxd key[*] lcd_* ps2_* sram_* sw[*] }] -to [get_clocks clock_50] File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332049): Ignored set_false_path at master.sdc(37): Argument <to> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 37
+Warning (332174): Ignored filter at master.sdc(38): aud_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): hex*[*] could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): i2c_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): lcd_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): led*[*] could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): ps2_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(38): sram_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332049): Ignored set_false_path at master.sdc(38): Argument <from> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 38
+    Info (332050): set_false_path -from [get_clocks clock_50] -to [get_ports { aud_* hex*[*] i2c_* lcd_* led*[*] ps2_* sram_* }] File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332049): Ignored set_false_path at master.sdc(38): Argument <to> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 38
+Warning (332174): Ignored filter at master.sdc(52): vga_* could not be matched with a port File: C:/LSD/P3/Parte1/master.sdc Line: 52
+Warning (332049): Ignored set_false_path at master.sdc(52): Argument <from> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 52
+    Info (332050): set_false_path -from [get_clocks clock_50] -to [get_ports vga_*] File: C:/LSD/P3/Parte1/master.sdc Line: 52
+Warning (332049): Ignored set_false_path at master.sdc(52): Argument <to> is an empty collection File: C:/LSD/P3/Parte1/master.sdc Line: 52
+Info (332144): No user constrained base clocks found in the design
+Info (332096): The command derive_clocks did not find any clocks to derive.  No clocks were created or changed.
+Warning (332068): No clocks defined in design.
+Info (332154): The derive_clock_uncertainty command did not apply clock uncertainty to any clock-to-clock transfers.
+Info (308044): (Information) Rule T102: Top nodes with the highest number of fan-outs. (Value defined:50). Found 28 node(s) with highest fan-out.
+    Info (308011): Node  "AddSub4:inst|Add0~8" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~5" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "SW[11]"
+    Info (308011): Node  "AddSub4:inst|Add0~9" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~10" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "KEY[0]"
+    Info (308011): Node  "AddSub4:inst|Add0~6" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "SW[15]"
+    Info (308011): Node  "SW[10]"
+    Info (308011): Node  "AddSub4:inst|Add0~7" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "SW[16]"
+    Info (308011): Node  "SW[14]"
+    Info (308011): Node  "AddSub4:inst|Add0~2" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~3" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~1" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "SW[12]"
+    Info (308011): Node  "AddSub4:inst|Add0~11" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~12" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~0" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "SW[13]"
+    Info (308011): Node  "SW[17]"
+    Info (308011): Node  "AddSub4:inst|Add0~13" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "AddSub4:inst|Add0~14" File: C:/LSD/P3/Parte1/AddSub4.vhd Line: 18
+    Info (308011): Node  "LEDR[14]~output"
+    Info (308011): Node  "LEDR[13]~output"
+    Info (308011): Node  "LEDR[12]~output"
+    Info (308011): Node  "LEDR[11]~output"
+    Info (308011): Node  "LEDR[10]~output"
+Info (308007): Design Assistant information: finished post-fitting analysis of current design -- generated 28 information messages and 0 warning messages
+Info: Quartus Prime Design Assistant was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 4653 megabytes
+    Info: Processing ended: Wed Mar 06 15:37:43 2019
+    Info: Elapsed time: 00:00:01
+    Info: Total CPU time (on all processors): 00:00:01
+
+

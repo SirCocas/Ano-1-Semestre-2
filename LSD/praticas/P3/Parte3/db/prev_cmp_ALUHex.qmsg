@@ -1,0 +1,13 @@
+{ "Info" "0" "" "qar.tcl version #1" {  } {  } 0 0 "qar.tcl version #1" 0 0 "0" 0 0 1552063286147 ""}
+{ "Info" "0" "" "Including '-use_file_set basic' by default" {  } {  } 0 0 "Including '-use_file_set basic' by default" 0 0 "0" 0 0 1552063286722 ""}
+{ "Info" "0" "" "All project revisions will be stored in common archive ALUHex_tmp_archive.qar" {  } {  } 0 0 "All project revisions will be stored in common archive ALUHex_tmp_archive.qar" 0 0 "0" 0 0 1552063286722 ""}
+{ "Info" "0" "" "Initializing files for 'ALUHex' revision" {  } {  } 0 0 "Initializing files for 'ALUHex' revision" 0 0 "0" 0 0 1552063286792 ""}
+{ "Info" "0" "" "File Set 'Source control' contains:" { { "Info" "0" "" "Project source and settings files" {  } {  } 0 0 "Project source and settings files" 0 0 "0" 0 0 1552063286798 ""} { "Info" "0" "" "Automatically detected source files" {  } {  } 0 0 "Automatically detected source files" 0 0 "0" 0 0 1552063286798 ""}  } {  } 0 0 "File Set 'Source control' contains:" 0 0 "0" 0 0 1552063286798 ""}
+{ "Warning" "0" "" "Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver" {  } {  } 0 0 "Hierarchical Platform Designer systems and custom IP components(_hw.tcl and associated files) are not archived by the Quartus Archiver" 0 0 "0" 0 0 1552063286835 ""}
+{ "Info" "0" "" "Archive will store files relative to the closest common parent directory" {  } {  } 0 0 "Archive will store files relative to the closest common parent directory" 0 0 "0" 0 0 1552063286924 ""}
+{ "Info" "IPRJ_ARC_TCL_TCL_USING_COMMON_DIR" "C:/LSD/ " "Using common directory C:/LSD/" {  } {  } 0 13213 "Using common directory %1!s!" 0 0 "Design Software" 0 -1 1552063286934 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1552063287051 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1552063287051 ""}
+{ "Info" "0" "" "Generated archive 'ALUHex_tmp_archive.qar'" {  } {  } 0 0 "Generated archive 'ALUHex_tmp_archive.qar'" 0 0 "0" 0 0 1552063287051 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1552063287051 ""}
+{ "Info" "0" "" "----------------------------------------------------------" {  } {  } 0 0 "----------------------------------------------------------" 0 0 "0" 0 0 1552063287051 ""}

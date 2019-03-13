@@ -1,0 +1,309 @@
+$comment
+	File created using the following command:
+		vcd file Mux4_1Demo.msim.vcd -direction
+$end
+$date
+	Thu Feb 21 17:34:11 2019
+$end
+$version
+	ModelSim Version 10.5b
+$end
+$timescale
+	1ps
+$end
+
+$scope module mux4_1demo_vhd_vec_tst $end
+$var wire 1 ! KEY [1] $end
+$var wire 1 " KEY [0] $end
+$var wire 1 # LEDR [0] $end
+$var wire 1 $ SW [3] $end
+$var wire 1 % SW [2] $end
+$var wire 1 & SW [1] $end
+$var wire 1 ' SW [0] $end
+
+$scope module i1 $end
+$var wire 1 ( gnd $end
+$var wire 1 ) vcc $end
+$var wire 1 * unknown $end
+$var wire 1 + devoe $end
+$var wire 1 , devclrn $end
+$var wire 1 - devpor $end
+$var wire 1 . ww_devoe $end
+$var wire 1 / ww_devclrn $end
+$var wire 1 0 ww_devpor $end
+$var wire 1 1 ww_LEDR [0] $end
+$var wire 1 2 ww_KEY [1] $end
+$var wire 1 3 ww_KEY [0] $end
+$var wire 1 4 ww_SW [3] $end
+$var wire 1 5 ww_SW [2] $end
+$var wire 1 6 ww_SW [1] $end
+$var wire 1 7 ww_SW [0] $end
+$var wire 1 8 \LEDR[0]~output_o\ $end
+$var wire 1 9 \SW[1]~input_o\ $end
+$var wire 1 : \KEY[0]~input_o\ $end
+$var wire 1 ; \SW[2]~input_o\ $end
+$var wire 1 < \KEY[1]~input_o\ $end
+$var wire 1 = \SW[0]~input_o\ $end
+$var wire 1 > \inst|muxOut~0_combout\ $end
+$var wire 1 ? \SW[3]~input_o\ $end
+$var wire 1 @ \inst|muxOut~1_combout\ $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0(
+1)
+x*
+1+
+1,
+1-
+1.
+1/
+10
+18
+09
+1:
+1;
+1<
+1=
+1>
+1?
+1@
+1!
+1"
+1$
+1%
+0&
+1'
+11
+12
+13
+14
+15
+06
+17
+1#
+$end
+#60000
+0!
+0%
+1&
+02
+16
+05
+0;
+19
+0<
+0>
+#120000
+1!
+1%
+0&
+0"
+0$
+03
+12
+06
+15
+04
+0?
+1;
+09
+1<
+0:
+1>
+0@
+1@
+08
+01
+18
+0#
+11
+1#
+#180000
+0%
+1&
+1"
+1$
+16
+05
+14
+13
+1:
+1?
+0;
+19
+#240000
+1%
+0"
+0!
+0'
+07
+15
+03
+02
+0<
+0:
+1;
+0=
+0>
+0@
+08
+01
+0#
+#300000
+1'
+0&
+17
+06
+09
+1=
+1>
+1@
+18
+11
+1#
+#360000
+1&
+0%
+1"
+0$
+16
+05
+04
+13
+1:
+0?
+0;
+19
+0>
+0@
+1@
+08
+01
+18
+0#
+11
+1#
+#420000
+1%
+0"
+15
+03
+0:
+1;
+1>
+0@
+1@
+08
+01
+18
+0#
+11
+1#
+#540000
+0%
+1$
+1!
+05
+14
+12
+1<
+1?
+0;
+0>
+0@
+08
+01
+0#
+#600000
+0$
+1"
+04
+13
+1:
+0?
+1>
+1@
+0@
+18
+11
+08
+1#
+01
+0#
+#660000
+0'
+07
+0=
+#720000
+1'
+1$
+0"
+1%
+0!
+17
+15
+14
+03
+02
+0<
+0:
+1?
+1;
+1=
+1@
+18
+11
+1#
+#780000
+0'
+0$
+0&
+07
+06
+04
+0?
+09
+0=
+0>
+0@
+08
+01
+0#
+#840000
+1$
+0%
+05
+14
+1?
+0;
+#900000
+0$
+1%
+1&
+1!
+16
+15
+04
+12
+1<
+0?
+1;
+19
+1>
+1@
+18
+11
+1#
+#960000
+0!
+02
+0<
+0>
+0@
+08
+01
+0#
+#1000000

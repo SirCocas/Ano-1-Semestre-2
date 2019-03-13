@@ -1,0 +1,9 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+entity ALU4
+	port(a, b: in std_logic_vector(3 downto 0);
+	     op  : in std_logic_vector(2 downto 0);
+		  r,m : out std_logic_vector(3 downto 0));
+end ALU4:

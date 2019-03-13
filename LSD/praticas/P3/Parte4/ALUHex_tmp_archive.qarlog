@@ -1,0 +1,25 @@
+Quartus Prime Archive log --	C:/LSD/P3/Parte3/ALUHex_tmp_archive.qarlog
+
+Archive:	C:/LSD/P3/Parte3/ALUHex_tmp_archive.qar
+Date:		Fri Mar 08 16:41:26 2019
+Quartus Prime		17.1.0 Build 590 10/25/2017 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/LSD/P2/Parte3/Bin7SegDecoder.vhd
+C:/LSD/P3/Parte2/ALU4.vhd
+C:/LSD/P3/Parte2/master.sdc
+C:/LSD/P3/Parte2/master.srf
+C:/LSD/P3/Parte3/ALUDemo.bdf
+C:/LSD/P3/Parte3/ALUHex.qpf
+C:/LSD/P3/Parte3/ALUHex.qsf
+c:/intelfpga_lite/17.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 8 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.
+
+
+******* Archived project restoration attempt on Fri Mar 08 16:41:28 2019
+Source archive file:	C:/LSD/P3/Parte3/ALUHex_tmp_archive.qar
+Archive was extracted into	C:/LSD/P3/Parte4/
+		 - successfully.
