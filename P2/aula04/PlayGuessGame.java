@@ -25,6 +25,8 @@ public class PlayGuessGame {
     int min = 0;
     int max = 20;
     if (args.length == 2) {
+		min=Integer.parseInt(args[0]);
+		max=Integer.parseInt(args[1]);
       // parse arguments...
     }
     GuessGame game = new GuessGame(min, max);
@@ -44,9 +46,11 @@ public class PlayGuessGame {
         help(game);
         break;
       case "count":
+        System.out.println("Number of attempts: "+game.numAttempts());
         //...
         break;
       default:
+		game.play(Integer.parseInt(command));
         //...
         break;
       }

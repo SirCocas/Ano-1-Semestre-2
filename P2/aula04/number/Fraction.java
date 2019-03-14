@@ -32,20 +32,49 @@ public class Fraction implements Comparable<Fraction>
 		this.num=-num;
 		this.den=-den;
 	}
-	else
+	else if (den>0)
 	{
 		this.num = num;
 		this.den = den;
 	}
+	if (num==den)
+	{
+		this.num=1;
+		this.den=1;
+	}
+	while (num%den==0 && (den!=1) && (num!=1) && (num!=0) && (num!=den))
+	{
+		this.num=num/maximodiv(num, den);
+		this.den=den/maximodiv(num, den);
+	}
     assert invariant(); // check object invariant
   }
+	private static int maximodiv (int x, int y) 
+	{
+		if (x==0)   //se o numerador for zero dividimos o denominador pelo proprio numero, assim ficamos com 0/1 em vez de 0/n
+			return y;
+		if (x<0)   //se o numerador for negativo vemos qual o maxdiv tendo o numero positivo
+			x=-x;
+		while (x!=y)
+		{
+			while (x<y)
+			{
+				y=y-x;
+			}
+			while (x>y)
+			{
+				x=x-y;
+			}
+		}
+		return x;
 
+	}
   /* Testa o invariante do objeto.
    * Ou seja, a propriedade que define a validade de uma fração.
    * É para testar em asserções nos métodos.
    */
   public boolean invariant() {
-    return den > 0;   // O denominador não pode ser nulo!
+    return (den > 0);   // O denominador não pode ser nulo!
   }
 
   /** Converte uma string numa fracção.
