@@ -1,63 +1,26 @@
 library IEEE;
 use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
 
 entity BCD is
-	port(inputs : in std_logic_vector(3 downto 0);
-	      outputs1, outputs0: out std_logic_vector(3 downto 0));
+	port(r : in std_logic_vector(3 downto 0);
+		  m : in std_logic_vector(3 downto 0);
+	     c,d,u: out std_logic_vector(3 downto 0));
 end BCD;
 
 architecture Behavioral of BCD is
+	signal b: unsigned(7 downto 0);
+	signal cd:unsigned(7 downto 0);
+	signal s_u:unsigned (7 downto 0);
+	signal s_d:unsigned(7 downto 0);
+	signal s_c: unsigned(7 downto 0);
 begin
-process (inputs)
-begin
-	if (inputs="0001") then
-		outputs1 <="0000";
-		outputs0 <="0001";
-	elsif (inputs="0010") then
-		outputs1<="0000";
-		outputs0<="0010";
-	elsif (inputs="0011")then
-		outputs1<="0000";
-		outputs0<="0011";
-	elsif (inputs="0100") then 
-		outputs1<="0000";
-		outputs0<="0100";
-	elsif (inputs="0101") then 
-		outputs1<="0000";
-		outputs0<="0101";
-	elsif (inputs="0110") then 
-		outputs1<="0000";
-		outputs0<="0110";
-	elsif (inputs="0111") then 
-		outputs1<="0000";
-		outputs0<="0111";
-	elsif (inputs="1000") then 
-		outputs1<="0000";
-		outputs0<="1000";
-	elsif (inputs="1001") then 
-		outputs1<="0000";
-		outputs0<="1001";
-	elsif (inputs="1010") then 
-		outputs1<="0001";
-		outputs0<="0000";
-	elsif (inputs="1011") then 
-		outputs1<="0001";
-		outputs0<="0001";
-	elsif (inputs="1100") then 
-		outputs1<="0001";
-		outputs0<="0010";
-	elsif (inputs="1101") then 
-		outputs1<="0001";
-		outputs0<="0011";
-	elsif (inputs="1110") then 
-		outputs1<="0001";
-		outputs0<="0100";
-	elsif (inputs="1111") then 
-		outputs1<="0001";
-		outputs0<="0101";
-	else 
-		outputs1<="0000";
-		outputs0<="0000";
-	end if;
-end process;
+	b<=unsigned(m & r);
+	s_u<=b rem "00001010";
+	cd<=b/"00001010";
+	s_d<=cd rem "00001010";
+	s_c<=cd/"1010";
+	c<=std_logic_vector(s_c(3 downto 0));
+	d<=std_logic_vector(s_d(3 downto 0));
+	u<=std_logic_vector(s_u(3 downto 0));
 end Behavioral;
