@@ -1,5 +1,5 @@
 EDA Netlist Writer report for ALUDemo
-Wed Mar 13 14:57:13 2019
+Tue Mar 19 13:18:09 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -36,7 +36,7 @@ refer to the applicable agreement for further details.
 +-------------------------------------------------------------------+
 ; EDA Netlist Writer Summary                                        ;
 +---------------------------+---------------------------------------+
-; EDA Netlist Writer Status ; Successful - Wed Mar 13 14:57:13 2019 ;
+; EDA Netlist Writer Status ; Successful - Tue Mar 19 13:18:09 2019 ;
 ; Revision Name             ; ALUDemo                               ;
 ; Top-level Entity Name     ; ALUDemo                               ;
 ; Family                    ; Cyclone IV E                          ;
@@ -88,7 +88,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Wed Mar 13 14:57:11 2019
+    Info: Processing started: Tue Mar 19 13:18:07 2019
 Info: Command: quartus_eda --read_settings_files=off --write_settings_files=off ALUDemo -c ALUDemo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file ALUDemo_7_1200mv_85c_slow.vho in folder "C:/LSD/P3/Parte5/simulation/modelsim/" for EDA simulation tool
@@ -100,8 +100,8 @@ Info (204019): Generated file ALUDemo_7_1200mv_0c_vhd_slow.sdo in folder "C:/LSD
 Info (204019): Generated file ALUDemo_min_1200mv_0c_vhd_fast.sdo in folder "C:/LSD/P3/Parte5/simulation/modelsim/" for EDA simulation tool
 Info (204019): Generated file ALUDemo_vhd.sdo in folder "C:/LSD/P3/Parte5/simulation/modelsim/" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4676 megabytes
-    Info: Processing ended: Wed Mar 13 14:57:13 2019
+    Info: Peak virtual memory: 4673 megabytes
+    Info: Processing ended: Tue Mar 19 13:18:09 2019
     Info: Elapsed time: 00:00:02
     Info: Total CPU time (on all processors): 00:00:01
 

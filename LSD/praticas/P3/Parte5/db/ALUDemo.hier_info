@@ -38,13 +38,21 @@ HEX3[3] <= Bin7SegDecoder:inst5.decOut_n[3]
 HEX3[4] <= Bin7SegDecoder:inst5.decOut_n[4]
 HEX3[5] <= Bin7SegDecoder:inst5.decOut_n[5]
 HEX3[6] <= Bin7SegDecoder:inst5.decOut_n[6]
-HEX4[0] <= SignalChange:batatas.sinal[0]
-HEX4[1] <= SignalChange:batatas.sinal[1]
-HEX4[2] <= SignalChange:batatas.sinal[2]
-HEX4[3] <= SignalChange:batatas.sinal[3]
-HEX4[4] <= SignalChange:batatas.sinal[4]
-HEX4[5] <= SignalChange:batatas.sinal[5]
-HEX4[6] <= SignalChange:batatas.sinal[6]
+HEX4[0] <= SignalChange:inst12.sinal[0]
+HEX4[1] <= SignalChange:inst12.sinal[1]
+HEX4[2] <= SignalChange:inst12.sinal[2]
+HEX4[3] <= SignalChange:inst12.sinal[3]
+HEX4[4] <= SignalChange:inst12.sinal[4]
+HEX4[5] <= SignalChange:inst12.sinal[5]
+HEX4[6] <= SignalChange:inst12.sinal[6]
+LEDR[0] <= SignalChange:inst12.rlinha[0]
+LEDR[1] <= SignalChange:inst12.rlinha[1]
+LEDR[2] <= SignalChange:inst12.rlinha[2]
+LEDR[3] <= SignalChange:inst12.rlinha[3]
+LEDR[4] <= SignalChange:inst12.rlinha[0]
+LEDR[5] <= SignalChange:inst12.rlinha[1]
+LEDR[6] <= SignalChange:inst12.rlinha[2]
+LEDR[7] <= SignalChange:inst12.rlinha[3]
 
 
 |ALUDemo|Bin7SegDecoder:inst6
@@ -203,25 +211,39 @@ outputs0[2] <= outputs0.DB_MAX_OUTPUT_PORT_TYPE
 outputs0[3] <= outputs0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|ALUDemo|SignalChange:batatas
-r[0] => rlinha.DATAB
-r[1] => rlinha.DATAB
-r[2] => rlinha.DATAB
+|ALUDemo|SignalChange:inst12
+r[0] => rlinha.DATAA
+r[0] => Add0.IN8
+r[1] => rlinha.DATAA
+r[1] => Add0.IN7
+r[2] => rlinha.DATAA
+r[2] => Add0.IN6
 r[3] => process_0.IN1
-r[3] => rlinha.DATAB
-r[3] => process_0.IN0
+r[3] => rlinha.DATAA
+r[3] => Add0.IN5
+m[0] => mlinha.DATAA
 m[0] => mlinha.DATAB
-m[0] => mlinha.DATAB
+m[0] => Add1.IN8
 m[0] => Equal0.IN3
+m[1] => mlinha.DATAA
 m[1] => mlinha.DATAB
-m[1] => mlinha.DATAB
+m[1] => Add1.IN7
 m[1] => Equal0.IN2
+m[2] => mlinha.DATAA
 m[2] => mlinha.DATAB
-m[2] => mlinha.DATAB
+m[2] => Add1.IN6
 m[2] => Equal0.IN1
+m[3] => mlinha.OUTPUTSELECT
+m[3] => mlinha.OUTPUTSELECT
+m[3] => mlinha.OUTPUTSELECT
+m[3] => mlinha.OUTPUTSELECT
 m[3] => mlinha.DATAB
-m[3] => mlinha.DATAB
-m[3] => process_0.IN1
+m[3] => rlinha.OUTPUTSELECT
+m[3] => rlinha.OUTPUTSELECT
+m[3] => rlinha.OUTPUTSELECT
+m[3] => rlinha.OUTPUTSELECT
+m[3] => Add1.IN5
+m[3] => sinal.DATAA
 m[3] => Equal0.IN0
 rlinha[0] <= rlinha.DB_MAX_OUTPUT_PORT_TYPE
 rlinha[1] <= rlinha.DB_MAX_OUTPUT_PORT_TYPE
@@ -231,13 +253,13 @@ mlinha[0] <= mlinha.DB_MAX_OUTPUT_PORT_TYPE
 mlinha[1] <= mlinha.DB_MAX_OUTPUT_PORT_TYPE
 mlinha[2] <= mlinha.DB_MAX_OUTPUT_PORT_TYPE
 mlinha[3] <= mlinha.DB_MAX_OUTPUT_PORT_TYPE
-sinal[0] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
-sinal[1] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
-sinal[2] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
-sinal[3] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
-sinal[4] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
+sinal[0] <= <VCC>
+sinal[1] <= <VCC>
+sinal[2] <= <VCC>
+sinal[3] <= <VCC>
+sinal[4] <= <VCC>
 sinal[5] <= <VCC>
-sinal[6] <= process_0.DB_MAX_OUTPUT_PORT_TYPE
+sinal[6] <= sinal.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |ALUDemo|ALU4:inst

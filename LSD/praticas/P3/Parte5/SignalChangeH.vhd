@@ -1,0 +1,39 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.all;
+use IEEE.NUMERIC_STD.all;
+
+
+entity SignalChangeH is
+	port(r, m: in std_logic_vector(3 downto 0);
+		  sinal: out std_logic_vector(6 downto 0));
+end SignalChangeH;
+
+architecture Behavioral of SignalChangeH is
+	signal s_r:unsigned (3 downto 0);
+	signal s_m:unsigned (3 downto 0);
+	signal s_rlinha:unsigned (3 downto 0);
+	signal s_mlinha:unsigned (3 downto 0);
+	signal s_um:to_unsigned(1,4);
+begin
+process (m, r)
+begin
+	s_r<=unsigned(r);
+	s_m<=unsigned(m);
+ --erro atual: todos os negativos ficam como -14... why??
+	s_rlinha<=unsigned (not (r) + 0001);
+	s_mlinha<= unsigned(not (m) + 0001);
+	if (m="0000" and r(3)='1') then  --fazemos o complemento para 2 do r
+		sinal<="0111111"; -- fica -
+		mlinha<=m;
+		rlinha<=std_logic_vector(s_rlinha);
+	elsif(m(3)='1') then   --fazemos o complemento dos 2 (r e m)
+		sinal<="0111111";   --fica -
+		mlinha<=std_logic_vector(s_mlinha);
+		rlinha<=std_logic_vector(s_rlinha);
+	else   --não fazemos nenhum complemento
+		sinal<="1111111"; --fica sem nada
+		rlinha<=r;
+		mlinha<=m;
+	end if;
+end process;
+end Behavioral;

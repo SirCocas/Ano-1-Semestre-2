@@ -10,34 +10,31 @@ entity SignalChange is
 end SignalChange;
 
 architecture Behavioral of SignalChange is--- criei estes sinais porque não estava a conseguir somar 1
-	signal s_um:unsigned  (3 downto 0);
+	signal s_um:unsigned(3 downto 0);
 	signal s_rlinha:unsigned (3 downto 0);
 	signal s_mlinha:unsigned (3 downto 0);
+	signal s_rlinhalinha:unsigned (3 downto 0);
+	signal s_mlinhalinha:unsigned (3 downto 0);
 begin
 process (m, r)
 begin
-	s_um<="0001";
-	if (m(3)='0' and r(3)='0') then
+	s_um<=to_unsigned(1,4);
+	s_rlinha<=unsigned(not r);
+	s_rlinhalinha<=unsigned (s_rlinha + s_um);
+	s_mlinha<=unsigned(not m);
+	s_mlinhalinha<= unsigned(s_mlinha + s_um);
+	if (m="0000" and r(3)='1') then  --fazemos o complemento para 2 do r
+		sinal<="0111111"; -- fica -
+		mlinha<=m;
+		rlinha<=std_logic_vector(s_rlinhalinha);
+	elsif(m(3)='1') then   --fazemos o complemento dos 2 (r e m)
+		sinal<="0111111";   --fica -
+		mlinha<=std_logic_vector(s_mlinhalinha);
+		rlinha<=std_logic_vector(s_rlinhalinha);
+	else   --não fazemos nenhum complemento
 		sinal<="1111111"; --fica sem nada
 		rlinha<=r;
 		mlinha<=m;
-	elsif (m="0000" and r(3)='1') then
-		sinal<="0100000"; -- fica -
-		mlinha<=m;
-		s_rlinha<=unsigned(r);
-		s_rlinha<=not s_rlinha;
-		s_rlinha<=s_rlinha + s_um;
-		rlinha<=std_logic_vector(s_rlinha);
-	else 
-		sinal<="0100000";   --fica -
-		s_mlinha<=unsigned(m);
-		s_mlinha<=not s_mlinha;
-		s_mlinha<=s_mlinha + s_um;
-		mlinha<=std_logic_vector(s_mlinha);
-		s_rlinha<=unsigned(r);
-		s_rlinha<=not s_rlinha;
-		s_rlinha<=s_rlinha + s_um;
-		rlinha<=std_logic_vector(s_rlinha);
 	end if;
 end process;
 end Behavioral;
