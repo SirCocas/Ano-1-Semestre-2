@@ -34,6 +34,7 @@ public class Input {
   public static double getDouble(String prompt, double min, double max) {
     // Add an assertion to test the precondition...
     double r = 0;
+    assert (min<max);  //se o minimo for igual ao max temos o grande total de 1 input possivel
     while (true) {
       err.print(prompt);
       String line = input.nextLine();
