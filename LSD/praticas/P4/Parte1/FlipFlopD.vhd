@@ -10,7 +10,7 @@ entity FlipFlopD is
 end FlipFlopD;
 architecture Behavioral of FlipFlopD is
 begin
-	process(clk, set, reset)
+	process(clk, set, reset) --assíncrono
 	begin
 		if (reset='1') then
 			q<='0';
@@ -21,3 +21,20 @@ begin
 		end if;
 	end process;
 end Behavioral;
+
+
+
+--architecture BehavioralSS of FlipFlopD is
+--begin
+--	process (clk)  --síncrono
+--		if (rising_edge(clk)) then
+--			if (reset='1') then
+--				q<='0';
+--			elsif (set='1') then
+--				q<='1';
+--			else 
+--				q<=d;
+--			end if;
+--		end if
+--	end process;
+--end BehavioralSS;

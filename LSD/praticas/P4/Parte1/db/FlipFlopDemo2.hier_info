@@ -5,8 +5,8 @@ SW[2] => flipflopd:queromorrer.reset
 SW[3] => latchd:queromorrer2.dataIn
 SW[4] => latchd:queromorrer2.enable
 KEY[0] => flipflopd:queromorrer.clk
-LEDR[0] <= flipflopd:queromorrer.q
-LEDR[1] <= latchd:queromorrer2.dataOut
+LEDR[0] << flipflopd:queromorrer.q
+LEDR[1] << latchd:queromorrer2.dataOut
 
 
 |FlipFlopD_Demo|FlipFlopD:queromorrer

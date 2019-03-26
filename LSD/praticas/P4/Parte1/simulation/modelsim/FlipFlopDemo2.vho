@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
--- DATE "03/25/2019 15:01:01"
+-- DATE "03/26/2019 13:39:39"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -264,7 +264,7 @@ ENTITY 	FlipFlopD_Demo IS
     PORT (
 	SW : IN std_logic_vector(4 DOWNTO 0);
 	KEY : IN std_logic_vector(0 DOWNTO 0);
-	LEDR : OUT std_logic_vector(1 DOWNTO 0)
+	LEDR : BUFFER std_logic_vector(1 DOWNTO 0)
 	);
 END FlipFlopD_Demo;
 
