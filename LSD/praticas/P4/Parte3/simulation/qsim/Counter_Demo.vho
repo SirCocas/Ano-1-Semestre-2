@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition"
 
--- DATE "03/26/2019 13:47:29"
+-- DATE "03/26/2019 14:30:47"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -33,14 +33,16 @@ USE ALTERA.ALTERA_PRIMITIVES_COMPONENTS.ALL;
 USE CYCLONEIVE.CYCLONEIVE_COMPONENTS.ALL;
 USE IEEE.STD_LOGIC_1164.ALL;
 
-ENTITY 	CounterDown4 IS
+ENTITY 	CounterUpDown4 IS
     PORT (
 	clk : IN std_logic;
+	reset : IN std_logic;
+	UpDown : IN std_logic;
 	count : OUT std_logic_vector(3 DOWNTO 0)
 	);
-END CounterDown4;
+END CounterUpDown4;
 
-ARCHITECTURE structure OF CounterDown4 IS
+ARCHITECTURE structure OF CounterUpDown4 IS
 SIGNAL gnd : std_logic := '0';
 SIGNAL vcc : std_logic := '1';
 SIGNAL unknown : std_logic := 'X';
@@ -51,21 +53,30 @@ SIGNAL ww_devoe : std_logic;
 SIGNAL ww_devclrn : std_logic;
 SIGNAL ww_devpor : std_logic;
 SIGNAL ww_clk : std_logic;
+SIGNAL ww_reset : std_logic;
+SIGNAL ww_UpDown : std_logic;
 SIGNAL ww_count : std_logic_vector(3 DOWNTO 0);
 SIGNAL \count[0]~output_o\ : std_logic;
 SIGNAL \count[1]~output_o\ : std_logic;
 SIGNAL \count[2]~output_o\ : std_logic;
 SIGNAL \count[3]~output_o\ : std_logic;
 SIGNAL \clk~input_o\ : std_logic;
-SIGNAL \s_count[0]~0_combout\ : std_logic;
-SIGNAL \Add0~0_combout\ : std_logic;
-SIGNAL \Add0~1_combout\ : std_logic;
-SIGNAL \Add0~2_combout\ : std_logic;
+SIGNAL \reset~input_o\ : std_logic;
+SIGNAL \s_count~3_combout\ : std_logic;
+SIGNAL \UpDown~input_o\ : std_logic;
+SIGNAL \s_count[1]~5_cout\ : std_logic;
+SIGNAL \s_count[1]~6_combout\ : std_logic;
+SIGNAL \s_count[1]~7\ : std_logic;
+SIGNAL \s_count[2]~8_combout\ : std_logic;
+SIGNAL \s_count[2]~9\ : std_logic;
+SIGNAL \s_count[3]~10_combout\ : std_logic;
 SIGNAL s_count : std_logic_vector(3 DOWNTO 0);
 
 BEGIN
 
 ww_clk <= clk;
+ww_reset <= reset;
+ww_UpDown <= UpDown;
 count <= ww_count;
 ww_devoe <= devoe;
 ww_devclrn <= devclrn;
@@ -125,18 +136,29 @@ PORT MAP (
 	i => ww_clk,
 	o => \clk~input_o\);
 
-\s_count[0]~0\ : cycloneive_lcell_comb
+\reset~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_reset,
+	o => \reset~input_o\);
+
+\s_count~3\ : cycloneive_lcell_comb
 -- Equation(s):
--- \s_count[0]~0_combout\ = !s_count(0)
+-- \s_count~3_combout\ = (!s_count(0) & !\reset~input_o\)
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "0101010101010101",
+	lut_mask => "0001000100010001",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
 	dataa => s_count(0),
-	combout => \s_count[0]~0_combout\);
+	datab => \reset~input_o\,
+	combout => \s_count~3_combout\);
 
 \s_count[0]\ : dffeas
 -- pragma translate_off
@@ -146,24 +168,52 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \s_count[0]~0_combout\,
+	d => \s_count~3_combout\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => s_count(0));
 
-\Add0~0\ : cycloneive_lcell_comb
+\UpDown~input\ : cycloneive_io_ibuf
+-- pragma translate_off
+GENERIC MAP (
+	bus_hold => "false",
+	simulate_z_as => "z")
+-- pragma translate_on
+PORT MAP (
+	i => ww_UpDown,
+	o => \UpDown~input_o\);
+
+\s_count[1]~5\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add0~0_combout\ = s_count(0) $ (!s_count(1))
+-- \s_count[1]~5_cout\ = CARRY(s_count(0))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111000000001111",
+	lut_mask => "0000000010101010",
 	sum_lutc_input => "datac")
 -- pragma translate_on
 PORT MAP (
-	datac => s_count(0),
-	datad => s_count(1),
-	combout => \Add0~0_combout\);
+	dataa => s_count(0),
+	datad => VCC,
+	cout => \s_count[1]~5_cout\);
+
+\s_count[1]~6\ : cycloneive_lcell_comb
+-- Equation(s):
+-- \s_count[1]~6_combout\ = (\UpDown~input_o\ & ((s_count(1) & (!\s_count[1]~5_cout\)) # (!s_count(1) & ((\s_count[1]~5_cout\) # (GND))))) # (!\UpDown~input_o\ & ((s_count(1) & (\s_count[1]~5_cout\ & VCC)) # (!s_count(1) & (!\s_count[1]~5_cout\))))
+-- \s_count[1]~7\ = CARRY((\UpDown~input_o\ & ((!\s_count[1]~5_cout\) # (!s_count(1)))) # (!\UpDown~input_o\ & (!s_count(1) & !\s_count[1]~5_cout\)))
+
+-- pragma translate_off
+GENERIC MAP (
+	lut_mask => "0110100100101011",
+	sum_lutc_input => "cin")
+-- pragma translate_on
+PORT MAP (
+	dataa => \UpDown~input_o\,
+	datab => s_count(1),
+	datad => VCC,
+	cin => \s_count[1]~5_cout\,
+	combout => \s_count[1]~6_combout\,
+	cout => \s_count[1]~7\);
 
 \s_count[1]\ : dffeas
 -- pragma translate_off
@@ -173,25 +223,29 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \Add0~0_combout\,
+	d => \s_count[1]~6_combout\,
+	sclr => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => s_count(1));
 
-\Add0~1\ : cycloneive_lcell_comb
+\s_count[2]~8\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add0~1_combout\ = s_count(2) $ (((!s_count(0) & !s_count(1))))
+-- \s_count[2]~8_combout\ = ((\UpDown~input_o\ $ (s_count(2) $ (\s_count[1]~7\)))) # (GND)
+-- \s_count[2]~9\ = CARRY((\UpDown~input_o\ & (s_count(2) & !\s_count[1]~7\)) # (!\UpDown~input_o\ & ((s_count(2)) # (!\s_count[1]~7\))))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111110000000011",
-	sum_lutc_input => "datac")
+	lut_mask => "1001011001001101",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	datab => s_count(0),
-	datac => s_count(1),
-	datad => s_count(2),
-	combout => \Add0~1_combout\);
+	dataa => \UpDown~input_o\,
+	datab => s_count(2),
+	datad => VCC,
+	cin => \s_count[1]~7\,
+	combout => \s_count[2]~8_combout\,
+	cout => \s_count[2]~9\);
 
 \s_count[2]\ : dffeas
 -- pragma translate_off
@@ -201,26 +255,26 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \Add0~1_combout\,
+	d => \s_count[2]~8_combout\,
+	sclr => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => s_count(2));
 
-\Add0~2\ : cycloneive_lcell_comb
+\s_count[3]~10\ : cycloneive_lcell_comb
 -- Equation(s):
--- \Add0~2_combout\ = s_count(3) $ (((!s_count(0) & (!s_count(1) & !s_count(2)))))
+-- \s_count[3]~10_combout\ = \UpDown~input_o\ $ (s_count(3) $ (!\s_count[2]~9\))
 
 -- pragma translate_off
 GENERIC MAP (
-	lut_mask => "1111111000000001",
-	sum_lutc_input => "datac")
+	lut_mask => "0110100101101001",
+	sum_lutc_input => "cin")
 -- pragma translate_on
 PORT MAP (
-	dataa => s_count(0),
-	datab => s_count(1),
-	datac => s_count(2),
-	datad => s_count(3),
-	combout => \Add0~2_combout\);
+	dataa => \UpDown~input_o\,
+	datab => s_count(3),
+	cin => \s_count[2]~9\,
+	combout => \s_count[3]~10_combout\);
 
 \s_count[3]\ : dffeas
 -- pragma translate_off
@@ -230,7 +284,8 @@ GENERIC MAP (
 -- pragma translate_on
 PORT MAP (
 	clk => \clk~input_o\,
-	d => \Add0~2_combout\,
+	d => \s_count[3]~10_combout\,
+	sclr => \reset~input_o\,
 	devclrn => ww_devclrn,
 	devpor => ww_devpor,
 	q => s_count(3));

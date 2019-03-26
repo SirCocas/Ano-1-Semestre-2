@@ -1,5 +1,5 @@
 Analysis & Synthesis report for Counter_Demo
-Tue Mar 26 13:55:51 2019
+Tue Mar 26 15:03:15 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -14,9 +14,10 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. General Register Statistics
-  9. Post-Synthesis Netlist Statistics for Top Partition
- 10. Elapsed Time Per Partition
- 11. Analysis & Synthesis Messages
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
 
 
 
@@ -42,16 +43,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Tue Mar 26 13:55:51 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Mar 26 15:03:15 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; Counter_Demo                                ;
-; Top-level Entity Name              ; CounterDown4                                ;
+; Top-level Entity Name              ; Counter_Demo                                ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4                                           ;
-;     Total combinational functions  ; 4                                           ;
-;     Dedicated logic registers      ; 4                                           ;
-; Total registers                    ; 4                                           ;
-; Total pins                         ; 5                                           ;
+; Total logic elements               ; 26                                          ;
+;     Total combinational functions  ; 26                                          ;
+;     Dedicated logic registers      ; 8                                           ;
+; Total registers                    ; 8                                           ;
+; Total pins                         ; 31                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -65,7 +66,7 @@ refer to the applicable agreement for further details.
 ; Option                                                                     ; Setting            ; Default Value      ;
 +----------------------------------------------------------------------------+--------------------+--------------------+
 ; Device                                                                     ; EP4CE115F29C7      ;                    ;
-; Top-level entity name                                                      ; CounterDown4       ; Counter_Demo       ;
+; Top-level entity name                                                      ; Counter_Demo       ; Counter_Demo       ;
 ; Family name                                                                ; Cyclone IV E       ; Cyclone V          ;
 ; Use smart compilation                                                      ; Off                ; Off                ;
 ; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
@@ -162,54 +163,61 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                             ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path      ; Library ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
-; CounterDown4.vhd                 ; yes             ; User VHDL File  ; C:/LSD/P4/Parte3/CounterDown4.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-----------------------------------+---------+
++---------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                      ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                          ; File Name with Absolute Path            ; Library ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------+---------+
+; CounterUpDown4.vhd               ; yes             ; User VHDL File                     ; C:/LSD/P4/Parte3/CounterUpDown4.vhd     ;         ;
+; Counter_Demo.bdf                 ; yes             ; User Block Diagram/Schematic File  ; C:/LSD/P4/Parte3/Counter_Demo.bdf       ;         ;
+; Bin7SegDecoder.vhd               ; yes             ; User VHDL File                     ; C:/LSD/P4/Parte3/Bin7SegDecoder.vhd     ;         ;
+; CounterLoadUpDown4.vhd           ; yes             ; User VHDL File                     ; C:/LSD/P4/Parte3/CounterLoadUpDown4.vhd ;         ;
++----------------------------------+-----------------+------------------------------------+-----------------------------------------+---------+
 
 
-+----------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary              ;
-+---------------------------------------------+------------+
-; Resource                                    ; Usage      ;
-+---------------------------------------------+------------+
-; Estimated Total logic elements              ; 4          ;
-;                                             ;            ;
-; Total combinational functions               ; 4          ;
-; Logic element usage by number of LUT inputs ;            ;
-;     -- 4 input functions                    ; 1          ;
-;     -- 3 input functions                    ; 1          ;
-;     -- <=2 input functions                  ; 2          ;
-;                                             ;            ;
-; Logic elements by mode                      ;            ;
-;     -- normal mode                          ; 4          ;
-;     -- arithmetic mode                      ; 0          ;
-;                                             ;            ;
-; Total registers                             ; 4          ;
-;     -- Dedicated logic registers            ; 4          ;
-;     -- I/O registers                        ; 0          ;
-;                                             ;            ;
-; I/O pins                                    ; 5          ;
-;                                             ;            ;
-; Embedded Multiplier 9-bit elements          ; 0          ;
-;                                             ;            ;
-; Maximum fan-out node                        ; s_count[0] ;
-; Maximum fan-out                             ; 5          ;
-; Total fan-out                               ; 27         ;
-; Average fan-out                             ; 1.50       ;
-+---------------------------------------------+------------+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                                      ;
++---------------------------------------------+------------------------------------+
+; Resource                                    ; Usage                              ;
++---------------------------------------------+------------------------------------+
+; Estimated Total logic elements              ; 26                                 ;
+;                                             ;                                    ;
+; Total combinational functions               ; 26                                 ;
+; Logic element usage by number of LUT inputs ;                                    ;
+;     -- 4 input functions                    ; 15                                 ;
+;     -- 3 input functions                    ; 6                                  ;
+;     -- <=2 input functions                  ; 5                                  ;
+;                                             ;                                    ;
+; Logic elements by mode                      ;                                    ;
+;     -- normal mode                          ; 20                                 ;
+;     -- arithmetic mode                      ; 6                                  ;
+;                                             ;                                    ;
+; Total registers                             ; 8                                  ;
+;     -- Dedicated logic registers            ; 8                                  ;
+;     -- I/O registers                        ; 0                                  ;
+;                                             ;                                    ;
+; I/O pins                                    ; 31                                 ;
+;                                             ;                                    ;
+; Embedded Multiplier 9-bit elements          ; 0                                  ;
+;                                             ;                                    ;
+; Maximum fan-out node                        ; CounterLoadUpDown4:inst|s_count[0] ;
+; Maximum fan-out                             ; 10                                 ;
+; Total fan-out                               ; 172                                ;
+; Average fan-out                             ; 1.79                               ;
++---------------------------------------------+------------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                       ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name  ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
-; |CounterDown4              ; 4 (4)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 5    ; 0            ; |CounterDown4       ; CounterDown4 ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                 ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node   ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                   ; Entity Name        ; Library Name ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
+; |Counter_Demo                ; 26 (0)              ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |Counter_Demo                         ; Counter_Demo       ; work         ;
+;    |Bin7SegDecoder:inst1|    ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Counter_Demo|Bin7SegDecoder:inst1    ; Bin7SegDecoder     ; work         ;
+;    |Bin7SegDecoder:tyyvubn|  ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Counter_Demo|Bin7SegDecoder:tyyvubn  ; Bin7SegDecoder     ; work         ;
+;    |CounterLoadUpDown4:inst| ; 7 (7)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Counter_Demo|CounterLoadUpDown4:inst ; CounterLoadUpDown4 ; work         ;
+;    |CounterUpDown4:aaaaaa|   ; 5 (5)               ; 4 (4)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |Counter_Demo|CounterUpDown4:aaaaaa   ; CounterUpDown4     ; work         ;
++------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------+--------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -218,14 +226,25 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 4     ;
-; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 0     ;
+; Total registers                              ; 8     ;
+; Number of registers using Synchronous Clear  ; 6     ;
+; Number of registers using Synchronous Load   ; 3     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 3     ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                 ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                       ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |Counter_Demo|CounterLoadUpDown4:inst|s_count[3] ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |Counter_Demo|Bin7SegDecoder:inst1|decOut_n[6]   ;
+; 16:1               ; 2 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |Counter_Demo|Bin7SegDecoder:tyyvubn|decOut_n[6] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+--------------------------------------------------+
 
 
 +-----------------------------------------------------+
@@ -233,18 +252,22 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 5                           ;
-; cycloneiii_ff         ; 4                           ;
-;     plain             ; 4                           ;
-; cycloneiii_lcell_comb ; 4                           ;
-;     normal            ; 4                           ;
-;         1 data inputs ; 1                           ;
-;         2 data inputs ; 1                           ;
-;         3 data inputs ; 1                           ;
-;         4 data inputs ; 1                           ;
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 8                           ;
+;     ENA SCLR SLD      ; 3                           ;
+;     SCLR              ; 3                           ;
+;     plain             ; 2                           ;
+; cycloneiii_lcell_comb ; 26                          ;
+;     arith             ; 6                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 4                           ;
+;     normal            ; 20                          ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 2                           ;
+;         4 data inputs ; 15                          ;
 ;                       ;                             ;
-; Max LUT depth         ; 1.00                        ;
-; Average LUT depth     ; 0.89                        ;
+; Max LUT depth         ; 2.00                        ;
+; Average LUT depth     ; 1.16                        ;
 +-----------------------+-----------------------------+
 
 
@@ -263,7 +286,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Tue Mar 26 13:55:38 2019
+    Info: Processing started: Tue Mar 26 15:03:03 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Counter_Demo -c Counter_Demo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
@@ -271,20 +294,31 @@ Info (12021): Found 2 design units, including 1 entities, in source file counter
     Info (12022): Found design unit 1: CounterDown4-Behavioral File: C:/LSD/P4/Parte3/CounterDown4.vhd Line: 10
     Info (12023): Found entity 1: CounterDown4 File: C:/LSD/P4/Parte3/CounterDown4.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file counterupdown4.vhd
-    Info (12022): Found design unit 1: CounterUpDown4-Behavioral File: C:/LSD/P4/Parte3/CounterUpDown4.vhd Line: 11
+    Info (12022): Found design unit 1: CounterUpDown4-Behavioral File: C:/LSD/P4/Parte3/CounterUpDown4.vhd Line: 12
     Info (12023): Found entity 1: CounterUpDown4 File: C:/LSD/P4/Parte3/CounterUpDown4.vhd Line: 5
-Info (12127): Elaborating entity "CounterDown4" for the top level hierarchy
+Info (12021): Found 1 design units, including 1 entities, in source file counter_demo.bdf
+    Info (12023): Found entity 1: Counter_Demo
+Info (12021): Found 2 design units, including 1 entities, in source file bin7segdecoder.vhd
+    Info (12022): Found design unit 1: Bin7SegDecoder-Behavioral File: C:/LSD/P4/Parte3/Bin7SegDecoder.vhd Line: 10
+    Info (12023): Found entity 1: Bin7SegDecoder File: C:/LSD/P4/Parte3/Bin7SegDecoder.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file counterloadupdown4.vhd
+    Info (12022): Found design unit 1: CounterLoadUpDown4-Behavioral File: C:/LSD/P4/Parte3/CounterLoadUpDown4.vhd Line: 15
+    Info (12023): Found entity 1: CounterLoadUpDown4 File: C:/LSD/P4/Parte3/CounterLoadUpDown4.vhd Line: 5
+Info (12127): Elaborating entity "Counter_Demo" for the top level hierarchy
+Info (12128): Elaborating entity "Bin7SegDecoder" for hierarchy "Bin7SegDecoder:inst1"
+Info (12128): Elaborating entity "CounterLoadUpDown4" for hierarchy "CounterLoadUpDown4:inst"
+Info (12128): Elaborating entity "CounterUpDown4" for hierarchy "CounterUpDown4:aaaaaa"
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 4 output pins
-    Info (21061): Implemented 4 logic cells
+Info (21057): Implemented 57 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 9 input pins
+    Info (21059): Implemented 22 output pins
+    Info (21061): Implemented 26 logic cells
 Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4806 megabytes
-    Info: Processing ended: Tue Mar 26 13:55:51 2019
-    Info: Elapsed time: 00:00:13
+    Info: Processing ended: Tue Mar 26 15:03:15 2019
+    Info: Elapsed time: 00:00:12
     Info: Total CPU time (on all processors): 00:00:27
 
 

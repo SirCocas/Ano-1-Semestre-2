@@ -7,7 +7,7 @@ Note: if both ModelSim-Altera and ModelSim executables are available, ModelSim-A
 
 **** Generating the ModelSim Testbench ****
 
-quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counter_Demo -c Counter_Demo --vector_source="C:/LSD/P4/Parte3/Waveform.vwf" --testbench_file="C:/LSD/P4/Parte3/simulation/qsim/Waveform.vwf.vht"
+quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counter_Demo -c Counter_Demo --vector_source="C:/LSD/P4/Parte3/Waveform2.vwf" --testbench_file="C:/LSD/P4/Parte3/simulation/qsim/Waveform2.vwf.vht"
 
 Info: *******************************************************************
 Info: Running Quartus Prime EDA Netlist Writer
@@ -25,8 +25,8 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Tue Mar 26 13:47:27 2019
-Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counter_Demo -c Counter_Demo --vector_source=C:/LSD/P4/Parte3/Waveform.vwf --testbench_file=C:/LSD/P4/Parte3/simulation/qsim/Waveform.vwf.vht
+    Info: Processing started: Tue Mar 26 14:30:45 2019
+Info: Command: quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off Counter_Demo -c Counter_Demo --vector_source=C:/LSD/P4/Parte3/Waveform2.vwf --testbench_file=C:/LSD/P4/Parte3/simulation/qsim/Waveform2.vwf.vht
 Info (119006): Selected device EP4CE115F29C7 for design "Counter_Demo"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 
@@ -52,14 +52,14 @@ Info: Running Quartus Prime EDA Netlist Writer
     Info: the sole purpose of programming logic devices manufactured by
     Info: Intel and sold by Intel or its authorized distributors.  Please
     Info: refer to the applicable agreement for further details.
-    Info: Processing started: Tue Mar 26 13:47:28 2019
+    Info: Processing started: Tue Mar 26 14:30:46 2019
 Info: Command: quartus_eda --write_settings_files=off --simulation=on --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory=C:/LSD/P4/Parte3/simulation/qsim/ Counter_Demo -c Counter_Demo
 Info (119006): Selected device EP4CE115F29C7 for design "Counter_Demo"
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (204019): Generated file Counter_Demo.vho in folder "C:/LSD/P4/Parte3/simulation/qsim//" for EDA simulation tool
 Info: Quartus Prime EDA Netlist Writer was successful. 0 errors, 1 warning
     Info: Peak virtual memory: 4659 megabytes
-    Info: Processing ended: Tue Mar 26 13:47:29 2019
+    Info: Processing ended: Tue Mar 26 14:30:47 2019
     Info: Elapsed time: 00:00:01
     Info: Total CPU time (on all processors): 00:00:01
 
@@ -77,78 +77,74 @@ c:/intelfpga_lite/17.1/modelsim_ase/win32aloem//vsim -c -do Counter_Demo.do
 
 Reading C:/intelFPGA_lite/17.1/modelsim_ase/tcl/vsim/pref.tcl
 
-
 # 10.5b
-
 
 # do Counter_Demo.do
 
+# ** Warning: (vlib-34) Library already exists at "work".
+
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:47:35 on Mar 26,2019
+# Start time: 14:30:48 on Mar 26,2019
 # vcom -work work Counter_Demo.vho 
-
 # -- Loading package STANDARD
-
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-
 # -- Loading package VITAL_Timing
 # -- Loading package VITAL_Primitives
 # -- Loading package dffeas_pack
 # -- Loading package altera_primitives_components
-
 # -- Loading package cycloneive_atom_pack
 # -- Loading package cycloneive_components
-# -- Compiling entity CounterDown4
-# -- Compiling architecture structure of CounterDown4
-# End time: 13:47:36 on Mar 26,2019, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
+# -- Compiling entity CounterUpDown4
+# -- Compiling architecture structure of CounterUpDown4
 
+# End time: 14:30:48 on Mar 26,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vcom 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 13:47:36 on Mar 26,2019
-# vcom -work work Waveform.vwf.vht 
+# Start time: 14:30:48 on Mar 26,2019
+# vcom -work work Waveform2.vwf.vht 
 # -- Loading package STANDARD
 # -- Loading package TEXTIO
 # -- Loading package std_logic_1164
-# -- Compiling entity CounterDown4_vhd_vec_tst
-# -- Compiling architecture CounterDown4_arch of CounterDown4_vhd_vec_tst
-# End time: 13:47:36 on Mar 26,2019, Elapsed time: 0:00:00
+# -- Compiling entity CounterUpDown4_vhd_vec_tst
+# -- Compiling architecture CounterUpDown4_arch of CounterUpDown4_vhd_vec_tst
+# End time: 14:30:48 on Mar 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
-# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.CounterDown4_vhd_vec_tst 
-# Start time: 13:47:37 on Mar 26,2019
+# vsim -novopt -c -t 1ps -L cycloneive -L altera -L altera_mf -L 220model -L sgate -L altera_lnsim work.CounterUpDown4_vhd_vec_tst 
+# Start time: 14:30:48 on Mar 26,2019
 # Loading std.standard
 # Loading std.textio(body)
 # Loading ieee.std_logic_1164(body)
-# Loading work.counterdown4_vhd_vec_tst(counterdown4_arch)
+# Loading work.counterupdown4_vhd_vec_tst(counterupdown4_arch)
 # Loading ieee.vital_timing(body)
 # Loading ieee.vital_primitives(body)
 # Loading altera.dffeas_pack
 # Loading altera.altera_primitives_components
 # Loading cycloneive.cycloneive_atom_pack(body)
 # Loading cycloneive.cycloneive_components
-# Loading work.counterdown4(structure)
+# Loading work.counterupdown4(structure)
 # Loading ieee.std_logic_arith(body)
 # Loading cycloneive.cycloneive_io_obuf(arch)
 # Loading cycloneive.cycloneive_io_ibuf(arch)
 # Loading cycloneive.cycloneive_lcell_comb(vital_lcell_comb)
 # Loading altera.dffeas(vital_dffeas)
-# after#31
+# after#33
 
-# End time: 13:47:39 on Mar 26,2019, Elapsed time: 0:00:02
+# End time: 14:30:48 on Mar 26,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 
 Completed successfully. 
 
 **** Converting ModelSim VCD to vector waveform ****
 
-Reading C:/LSD/P4/Parte3/Waveform.vwf...
+Reading C:/LSD/P4/Parte3/Waveform2.vwf...
 
 Reading C:/LSD/P4/Parte3/simulation/qsim/Counter_Demo.msim.vcd...
 
 Processing channel transitions... 
 
-Writing the resulting VWF to C:/LSD/P4/Parte3/simulation/qsim/Counter_Demo_20190326134739.sim.vwf
+Writing the resulting VWF to C:/LSD/P4/Parte3/simulation/qsim/Counter_Demo_20190326143049.sim.vwf
 
 Finished VCD to VWF conversion.
 

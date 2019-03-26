@@ -3,8 +3,9 @@ use IEEE.STD_LOGIC_1164.all;
 use IEEE.NUMERIC_STD.all;
 
 entity CounterUpDown4 is
-	port(clk  : in std_logic;
-		  reset: in std_logic;
+	port(clk   : in std_logic;
+		  reset : in std_logic;
+		  UpDown: in std_logic;  -- se estiver a 1, vai para cima
 		  count: out std_logic_vector(3 downto 0));
 end CounterUpDown4;
 
@@ -16,6 +17,8 @@ begin
 		if (rising_edge(clk)) then
 			if (reset='1') then
 				s_count<="0000";
+			elsif (UpDown='1') then
+				s_count<= s_count +1;
 			else
 				s_count<=s_count -1;
 			end if;
