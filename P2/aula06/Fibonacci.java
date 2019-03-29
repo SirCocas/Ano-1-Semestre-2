@@ -1,13 +1,13 @@
 import static java.lang.System.*;
 
 public class Fibonacci {
+	static int [] arr;
 
   public static void main(String[] args) {
     if (args.length < 1) {
       out.println("USO: java -ea Fibonacci N [N ...]");
       exit(1);
     }
-
     // Alguns testes:
     assert fibonacci(0) == 0;
     assert fibonacci(1) == 1;
@@ -15,7 +15,7 @@ public class Fibonacci {
     assert fibonacci(5) == 5;
 
     for(int i = 0; i < args.length; i++) {
-      int n = Integer.parseInt(args[i]);
+      int n = Integer.parseInt(args[i]);	
       long time = nanoTime();  // System.nanoTime() gives the time in ns.
       int f = fibonacci(n);
       time = nanoTime() - time;
@@ -25,6 +25,23 @@ public class Fibonacci {
 
   public static int fibonacci(int n) {
     assert n >= 0;
+    if (n==0)
+    {
+		return 0;
+	}
+	if (n==1|| n==2)
+	{
+		return 1;
+	}
+	//não é necessário pôr if aqui porque a função já foi abaixo caso n=1 ou n=0
+	if (arr == null) { //se o array estiver vazio, criamos um
+        arr = new int[n+10];
+    }
+	if (arr[n - 1] == 0) {
+       arr[n - 1] = fibonacci(n - 1) + fibonacci(n - 2);
+    }
+
+    return arr[n - 1];
     //...
   }
 
