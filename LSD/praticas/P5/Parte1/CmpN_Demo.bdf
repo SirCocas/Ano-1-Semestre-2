@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 24 168 192 184)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[3..0]" (rect 5 0 49 12)(font "Arial" ))
+	(text "SW[3..0]" (rect 5 0 48 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 16 192 184 208)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[7..4]" (rect 5 0 46 17)(font "Intel Clear" ))
+	(text "SW[7..4]" (rect 5 0 45 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -8 448 160 464)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW16[12..8]" (rect 5 0 63 17)(font "Intel Clear" ))
+	(text "SW[12..8]" (rect 5 0 52 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -16 472 152 488)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW17[17..13]" (rect 5 0 69 17)(font "Intel Clear" ))
+	(text "SW[17..13]" (rect 5 0 57 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -85,9 +85,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 504 168 680 184)
+	(rect 544 168 720 184)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[0]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[0]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -101,9 +101,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 504 208 680 224)
+	(rect 544 208 720 224)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[1]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[1]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -117,9 +117,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 512 264 688 280)
+	(rect 544 240 720 256)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[2]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[2]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -133,9 +133,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 504 320 680 336)
+	(rect 544 272 720 288)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[3]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[3]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -149,9 +149,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 472 448 648 464)
+	(rect 552 448 728 464)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[4]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[4]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -165,9 +165,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 472 488 648 504)
+	(rect 552 488 728 504)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[5]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[5]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -181,9 +181,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 480 544 656 560)
+	(rect 552 544 728 560)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[6]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[6]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -197,9 +197,9 @@ refer to the applicable agreement for further details.
 )
 (pin
 	(output)
-	(rect 472 600 648 616)
+	(rect 552 600 728 616)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
-	(text "LEDG[7]" (rect 90 0 128 17)(font "Intel Clear" ))
+	(text "LEDR[7]" (rect 90 0 128 17)(font "Intel Clear" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -339,40 +339,12 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 440 176)
-	(pt 504 176)
-)
-(connector
-	(pt 440 192)
-	(pt 504 192)
-)
-(connector
-	(pt 504 192)
-	(pt 504 216)
-)
-(connector
 	(pt 440 208)
 	(pt 472 208)
 )
 (connector
-	(pt 472 272)
-	(pt 472 208)
-)
-(connector
-	(pt 472 272)
-	(pt 512 272)
-)
-(connector
 	(pt 440 224)
 	(pt 448 224)
-)
-(connector
-	(pt 448 224)
-	(pt 448 328)
-)
-(connector
-	(pt 448 328)
-	(pt 504 328)
 )
 (connector
 	(pt 216 456)
@@ -390,38 +362,66 @@ refer to the applicable agreement for further details.
 	(bus)
 )
 (connector
-	(pt 408 456)
-	(pt 472 456)
-)
-(connector
-	(pt 408 472)
-	(pt 472 472)
-)
-(connector
-	(pt 472 472)
-	(pt 472 496)
-)
-(connector
 	(pt 408 488)
 	(pt 440 488)
-)
-(connector
-	(pt 440 552)
-	(pt 440 488)
-)
-(connector
-	(pt 440 552)
-	(pt 480 552)
 )
 (connector
 	(pt 408 504)
 	(pt 416 504)
 )
 (connector
+	(pt 408 456)
+	(pt 552 456)
+)
+(connector
+	(pt 408 472)
+	(pt 552 472)
+)
+(connector
+	(pt 552 472)
+	(pt 552 496)
+)
+(connector
+	(pt 440 488)
+	(pt 440 552)
+)
+(connector
+	(pt 440 552)
+	(pt 552 552)
+)
+(connector
 	(pt 416 504)
 	(pt 416 608)
 )
 (connector
 	(pt 416 608)
-	(pt 472 608)
+	(pt 552 608)
+)
+(connector
+	(pt 440 176)
+	(pt 544 176)
+)
+(connector
+	(pt 440 192)
+	(pt 544 192)
+)
+(connector
+	(pt 544 192)
+	(pt 544 216)
+)
+(connector
+	(pt 472 208)
+	(pt 472 248)
+)
+(connector
+	(pt 472 248)
+	(pt 544 248)
+)
+(connector
+	(pt 448 224)
+	(pt 448 280)
+)
+(connector
+	(pt 448 280)
+	(pt 544 280)
 )

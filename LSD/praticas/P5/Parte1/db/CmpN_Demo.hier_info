@@ -1,12 +1,12 @@
 |CmpN_Demo
-LEDG[0] <= CmpN:inst.equal
-LEDG[1] <= CmpN:inst.notEqual
-LEDG[2] <= CmpN:inst.ltSigned
-LEDG[3] <= CmpN:inst.ltUnsigned
-LEDG[4] <= CmpN:inst15.equal
-LEDG[5] <= CmpN:inst15.notEqual
-LEDG[6] <= CmpN:inst15.ltSigned
-LEDG[7] <= CmpN:inst15.ltUnsigned
+LEDR[0] <= CmpN:inst.equal
+LEDR[1] <= CmpN:inst.notEqual
+LEDR[2] <= CmpN:inst.ltSigned
+LEDR[3] <= CmpN:inst.ltUnsigned
+LEDR[4] <= CmpN:inst15.equal
+LEDR[5] <= CmpN:inst15.notEqual
+LEDR[6] <= CmpN:inst15.ltSigned
+LEDR[7] <= CmpN:inst15.ltUnsigned
 SW[0] => CmpN:inst.input0[0]
 SW[1] => CmpN:inst.input0[1]
 SW[2] => CmpN:inst.input0[2]
@@ -15,16 +15,16 @@ SW[4] => CmpN:inst.input1[0]
 SW[5] => CmpN:inst.input1[1]
 SW[6] => CmpN:inst.input1[2]
 SW[7] => CmpN:inst.input1[3]
-SW16[8] => CmpN:inst15.input0[0]
-SW16[9] => CmpN:inst15.input0[1]
-SW16[10] => CmpN:inst15.input0[2]
-SW16[11] => CmpN:inst15.input0[3]
-SW16[12] => CmpN:inst15.input0[4]
-SW17[13] => CmpN:inst15.input1[0]
-SW17[14] => CmpN:inst15.input1[1]
-SW17[15] => CmpN:inst15.input1[2]
-SW17[16] => CmpN:inst15.input1[3]
-SW17[17] => CmpN:inst15.input1[4]
+SW[8] => CmpN:inst15.input0[0]
+SW[9] => CmpN:inst15.input0[1]
+SW[10] => CmpN:inst15.input0[2]
+SW[11] => CmpN:inst15.input0[3]
+SW[12] => CmpN:inst15.input0[4]
+SW[13] => CmpN:inst15.input1[0]
+SW[14] => CmpN:inst15.input1[1]
+SW[15] => CmpN:inst15.input1[2]
+SW[16] => CmpN:inst15.input1[3]
+SW[17] => CmpN:inst15.input1[4]
 
 
 |CmpN_Demo|CmpN:inst

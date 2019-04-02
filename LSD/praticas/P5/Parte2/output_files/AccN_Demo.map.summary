@@ -1,13 +1,13 @@
-Analysis & Synthesis Status : Successful - Mon Apr 01 14:52:03 2019
+Analysis & Synthesis Status : Successful - Tue Apr 02 15:12:19 2019
 Quartus Prime Version : 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 Revision Name : AccN_Demo
 Top-level Entity Name : AccN_Demo
 Family : Cyclone IV E
-Total logic elements : 0
-    Total combinational functions : 0
-    Dedicated logic registers : 0
-Total registers : 0
-Total pins : 30
+Total logic elements : 14
+    Total combinational functions : 14
+    Dedicated logic registers : 13
+Total registers : 13
+Total pins : 31
 Total virtual pins : 0
 Total memory bits : 0
 Embedded Multiplier 9-bit elements : 0

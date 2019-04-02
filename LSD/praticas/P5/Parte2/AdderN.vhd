@@ -14,6 +14,8 @@ architecture Behavioral of AdderN is
 	signal s_op1: unsigned(N-1 downto 0);
 	signal s_res: unsigned(N-1 downto 0);
 begin
+	s_op0<=unsigned(operand0);
+	s_op1<=unsigned(operand1);
 	s_res<=s_op0 + s_op1;
 	result<=std_logic_vector(s_res);
 end Behavioral;

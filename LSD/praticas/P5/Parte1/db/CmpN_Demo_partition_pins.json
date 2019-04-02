@@ -4,75 +4,75 @@
 			"name" : "Top",
 			"pins" : [
 				{
-					"name" : "LEDG[7]",
+					"name" : "LEDR[7]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[6]",
+					"name" : "LEDR[6]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[5]",
+					"name" : "LEDR[5]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[4]",
+					"name" : "LEDR[4]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[3]",
+					"name" : "LEDR[3]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[2]",
+					"name" : "LEDR[2]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[1]",
+					"name" : "LEDR[1]",
 					"strict" : false
 				},
 				{
-					"name" : "LEDG[0]",
+					"name" : "LEDR[0]",
 					"strict" : false
 				},
 				{
-					"name" : "SW17[16]",
+					"name" : "SW[16]",
 					"strict" : false
 				},
 				{
-					"name" : "SW16[12]",
+					"name" : "SW[17]",
 					"strict" : false
 				},
 				{
-					"name" : "SW17[17]",
+					"name" : "SW[12]",
 					"strict" : false
 				},
 				{
-					"name" : "SW16[11]",
+					"name" : "SW[11]",
 					"strict" : false
 				},
 				{
-					"name" : "SW17[14]",
+					"name" : "SW[14]",
 					"strict" : false
 				},
 				{
-					"name" : "SW17[13]",
+					"name" : "SW[13]",
 					"strict" : false
 				},
 				{
-					"name" : "SW16[8]",
+					"name" : "SW[8]",
 					"strict" : false
 				},
 				{
-					"name" : "SW16[9]",
+					"name" : "SW[9]",
 					"strict" : false
 				},
 				{
-					"name" : "SW17[15]",
+					"name" : "SW[15]",
 					"strict" : false
 				},
 				{
-					"name" : "SW16[10]",
+					"name" : "SW[10]",
 					"strict" : false
 				},
 				{

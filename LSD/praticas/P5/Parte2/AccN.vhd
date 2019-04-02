@@ -11,7 +11,7 @@ entity AccN is
 		  dataOut: out std_logic_vector(N-1 downto 0));
 end AccN;
 
-architecture Shell of AccN is 
+architecture Structural of AccN is 
 signal s_dataOut: std_logic_vector(N-1 downto 0);
 signal soma: std_logic_vector(N-1 downto 0);
 begin
@@ -24,8 +24,9 @@ begin
 				generic map(N=>N)
 				port map(clk=> clk,
 							d=>soma,
+							enable=> enable,
 							reset=> reset,
 							q=>s_dataOut);
 	dataOut<=s_dataOut;
 	
-end Shell;
+end Structural;

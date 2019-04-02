@@ -23,7 +23,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 32 192 200 208)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[8]" (rect 5 0 35 17)(font "Intel Clear" ))
+	(text "SW[8]" (rect 5 0 34 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -39,7 +39,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 32 240 200 256)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "sw[9]" (rect 5 0 31 17)(font "Intel Clear" ))
+	(text "sw[9]" (rect 5 0 30 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -55,7 +55,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 16 216 184 232)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "KEY[0]" (rect 5 0 39 17)(font "Intel Clear" ))
+	(text "KEY[0]" (rect 5 0 38 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -71,7 +71,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect 32 176 200 192)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[7..0]" (rect 5 0 49 12)(font "Arial" ))
+	(text "SW[7..0]" (rect 5 0 48 12)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -87,7 +87,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -8 376 160 392)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[13..10]" (rect 5 0 57 17)(font "Intel Clear" ))
+	(text "SW[13..10]" (rect 5 0 56 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -103,7 +103,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -16 400 152 416)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[14]" (rect 5 0 41 17)(font "Intel Clear" ))
+	(text "SW[14]" (rect 5 0 40 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -119,7 +119,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -8 432 160 448)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "KEY[1]" (rect 5 0 39 17)(font "Intel Clear" ))
+	(text "KEY[1]" (rect 5 0 38 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -135,7 +135,7 @@ refer to the applicable agreement for further details.
 	(input)
 	(rect -8 472 160 488)
 	(text "INPUT" (rect 125 0 153 10)(font "Arial" (font_size 6)))
-	(text "SW[15]" (rect 5 0 41 17)(font "Intel Clear" ))
+	(text "SW[15]" (rect 5 0 40 17)(font "Intel Clear" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -168,6 +168,22 @@ refer to the applicable agreement for further details.
 	(rect 480 384 656 400)
 	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
 	(text "LEDG[3..0]" (rect 90 0 145 12)(font "Arial" ))
+	(pt 0 8)
+	(drawing
+		(line (pt 0 8)(pt 52 8))
+		(line (pt 52 4)(pt 78 4))
+		(line (pt 52 12)(pt 78 12))
+		(line (pt 52 12)(pt 52 4))
+		(line (pt 78 4)(pt 82 8))
+		(line (pt 82 8)(pt 78 12))
+		(line (pt 78 12)(pt 82 8))
+	)
+)
+(pin
+	(output)
+	(rect 504 440 680 456)
+	(text "OUTPUT" (rect 1 0 39 10)(font "Arial" (font_size 6)))
+	(text "LEDG[4]" (rect 90 0 132 12)(font "Arial" ))
 	(pt 0 8)
 	(drawing
 		(line (pt 0 8)(pt 52 8))
@@ -230,8 +246,8 @@ refer to the applicable agreement for further details.
 )
 (symbol
 	(rect 224 360 432 472)
-	(text "AccN" (rect 5 0 32 12)(font "Arial" ))
-	(text "inst1" (rect 8 96 30 113)(font "Intel Clear" ))
+	(text "AccProc" (rect 5 0 46 12)(font "Arial" ))
+	(text "inst2" (rect 8 96 31 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -264,8 +280,15 @@ refer to the applicable agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "dataOut[n-1..0]" (rect 0 0 74 12)(font "Arial" ))
-		(text "dataOut[n-1..0]" (rect 125 27 199 39)(font "Arial" ))
+		(text "dataOut[n-1..0]" (rect 125 27 187 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "ovf" (rect 0 0 17 12)(font "Arial" ))
+		(text "ovf" (rect 173 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48))
 	)
 	(parameter
 		"N"
@@ -346,4 +369,12 @@ refer to the applicable agreement for further details.
 	(pt 432 392)
 	(pt 480 392)
 	(bus)
+)
+(connector
+	(pt 432 408)
+	(pt 504 408)
+)
+(connector
+	(pt 504 408)
+	(pt 504 448)
 )

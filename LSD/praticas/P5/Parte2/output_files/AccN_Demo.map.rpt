@@ -1,5 +1,5 @@
 Analysis & Synthesis report for AccN_Demo
-Mon Apr 01 14:52:03 2019
+Tue Apr 02 15:12:19 2019
 Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
 
 
@@ -13,17 +13,15 @@ Quartus Prime Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
   5. Analysis & Synthesis Source Files Read
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
-  8. Registers Removed During Synthesis
-  9. General Register Statistics
- 10. Parameter Settings for User Entity Instance: AccN:inst1
- 11. Parameter Settings for User Entity Instance: AccN:inst1|AdderN:add
- 12. Parameter Settings for User Entity Instance: AccN:inst1|RegN:reg
- 13. Parameter Settings for User Entity Instance: AccN:inst
- 14. Parameter Settings for User Entity Instance: AccN:inst|AdderN:add
- 15. Parameter Settings for User Entity Instance: AccN:inst|RegN:reg
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+  8. General Register Statistics
+  9. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 10. Parameter Settings for User Entity Instance: AccProc:inst2
+ 11. Parameter Settings for User Entity Instance: AccN:inst
+ 12. Parameter Settings for User Entity Instance: AccN:inst|AdderN:add
+ 13. Parameter Settings for User Entity Instance: AccN:inst|RegN:reg
+ 14. Post-Synthesis Netlist Statistics for Top Partition
+ 15. Elapsed Time Per Partition
+ 16. Analysis & Synthesis Messages
 
 
 
@@ -49,16 +47,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Apr 01 14:52:03 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Apr 02 15:12:19 2019       ;
 ; Quartus Prime Version              ; 17.1.0 Build 590 10/25/2017 SJ Lite Edition ;
 ; Revision Name                      ; AccN_Demo                                   ;
 ; Top-level Entity Name              ; AccN_Demo                                   ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 0                                           ;
-;     Total combinational functions  ; 0                                           ;
-;     Dedicated logic registers      ; 0                                           ;
-; Total registers                    ; 0                                           ;
-; Total pins                         ; 30                                          ;
+; Total logic elements               ; 14                                          ;
+;     Total combinational functions  ; 14                                          ;
+;     Dedicated logic registers      ; 13                                          ;
+; Total registers                    ; 13                                          ;
+; Total pins                         ; 31                                          ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -161,10 +159,11 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 2           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 2           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
 +----------------------------+-------------+
 
 
@@ -177,61 +176,53 @@ refer to the applicable agreement for further details.
 ; AdderN.vhd                       ; yes             ; User VHDL File                     ; C:/LSD/P5/Parte2/AdderN.vhd    ;         ;
 ; AccN.vhd                         ; yes             ; User VHDL File                     ; C:/LSD/P5/Parte2/AccN.vhd      ;         ;
 ; AccN_Demo.bdf                    ; yes             ; User Block Diagram/Schematic File  ; C:/LSD/P5/Parte2/AccN_Demo.bdf ;         ;
+; AccProc.vhd                      ; yes             ; User VHDL File                     ; C:/LSD/P5/Parte2/AccProc.vhd   ;         ;
 +----------------------------------+-----------------+------------------------------------+--------------------------------+---------+
 
 
-+--------------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary                  ;
-+---------------------------------------------+----------------+
-; Resource                                    ; Usage          ;
-+---------------------------------------------+----------------+
-;                                             ;                ;
-; Total combinational functions               ; 0              ;
-; Logic element usage by number of LUT inputs ;                ;
-;     -- 4 input functions                    ; 0              ;
-;     -- 3 input functions                    ; 0              ;
-;     -- <=2 input functions                  ; 0              ;
-;                                             ;                ;
-; Logic elements by mode                      ;                ;
-;     -- normal mode                          ; 0              ;
-;     -- arithmetic mode                      ; 0              ;
-;                                             ;                ;
-; Total registers                             ; 0              ;
-;     -- Dedicated logic registers            ; 0              ;
-;     -- I/O registers                        ; 0              ;
-;                                             ;                ;
-; I/O pins                                    ; 30             ;
-;                                             ;                ;
-; Embedded Multiplier 9-bit elements          ; 0              ;
-;                                             ;                ;
-; Maximum fan-out node                        ; LEDG[3]~output ;
-; Maximum fan-out                             ; 1              ;
-; Total fan-out                               ; 30             ;
-; Average fan-out                             ; 0.50           ;
-+---------------------------------------------+----------------+
++------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                ;
++---------------------------------------------+--------------+
+; Resource                                    ; Usage        ;
++---------------------------------------------+--------------+
+; Estimated Total logic elements              ; 14           ;
+;                                             ;              ;
+; Total combinational functions               ; 14           ;
+; Logic element usage by number of LUT inputs ;              ;
+;     -- 4 input functions                    ; 0            ;
+;     -- 3 input functions                    ; 11           ;
+;     -- <=2 input functions                  ; 3            ;
+;                                             ;              ;
+; Logic elements by mode                      ;              ;
+;     -- normal mode                          ; 3            ;
+;     -- arithmetic mode                      ; 11           ;
+;                                             ;              ;
+; Total registers                             ; 13           ;
+;     -- Dedicated logic registers            ; 13           ;
+;     -- I/O registers                        ; 0            ;
+;                                             ;              ;
+; I/O pins                                    ; 31           ;
+;                                             ;              ;
+; Embedded Multiplier 9-bit elements          ; 0            ;
+;                                             ;              ;
+; Maximum fan-out node                        ; KEY[0]~input ;
+; Maximum fan-out                             ; 8            ;
+; Total fan-out                               ; 134          ;
+; Average fan-out                             ; 1.51         ;
++---------------------------------------------+--------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                      ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Entity Name ; Library Name ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
-; |AccN_Demo                 ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 30   ; 0            ; |AccN_Demo          ; AccN_Demo   ; work         ;
-+----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------+-------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name           ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
+; |AccN_Demo                 ; 14 (0)              ; 13 (0)                    ; 0           ; 0            ; 0       ; 0         ; 31   ; 0            ; |AccN_Demo                    ; AccN_Demo   ; work         ;
+;    |AccN:inst|             ; 8 (0)               ; 8 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AccN_Demo|AccN:inst          ; AccN        ; work         ;
+;       |RegN:reg|           ; 8 (8)               ; 8 (8)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AccN_Demo|AccN:inst|RegN:reg ; RegN        ; work         ;
+;    |AccProc:inst2|         ; 6 (6)               ; 5 (5)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |AccN_Demo|AccProc:inst2      ; AccProc     ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
-
-
-+---------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                              ;
-+----------------------------------------+----------------------------------------+
-; Register name                          ; Reason for Removal                     ;
-+----------------------------------------+----------------------------------------+
-; AccN:inst|RegN:reg|q[0]                ; Stuck at GND due to stuck port data_in ;
-; AccN:inst1|RegN:reg|q[0]               ; Stuck at GND due to stuck port data_in ;
-; AccN:inst|RegN:reg|q[1..7]             ; Stuck at GND due to stuck port data_in ;
-; AccN:inst1|RegN:reg|q[1..3]            ; Stuck at GND due to stuck port data_in ;
-; Total Number of Removed Registers = 12 ;                                        ;
-+----------------------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -239,43 +230,32 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 0     ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 13    ;
+; Number of registers using Synchronous Clear  ; 5     ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Clear ; 8     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 13    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
 
-+---------------------------------------------------------+
-; Parameter Settings for User Entity Instance: AccN:inst1 ;
-+----------------+-------+--------------------------------+
-; Parameter Name ; Value ; Type                           ;
-+----------------+-------+--------------------------------+
-; n              ; 4     ; Signed Integer                 ;
-+----------------+-------+--------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |AccN_Demo|AccProc:inst2|s_out[4] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
-+--------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: AccN:inst1|AdderN:add ;
-+----------------+-------+-------------------------------------------+
-; Parameter Name ; Value ; Type                                      ;
-+----------------+-------+-------------------------------------------+
-; n              ; 4     ; Signed Integer                            ;
-+----------------+-------+-------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
-+------------------------------------------------------------------+
-; Parameter Settings for User Entity Instance: AccN:inst1|RegN:reg ;
-+----------------+-------+-----------------------------------------+
-; Parameter Name ; Value ; Type                                    ;
-+----------------+-------+-----------------------------------------+
-; n              ; 4     ; Signed Integer                          ;
-+----------------+-------+-----------------------------------------+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: AccProc:inst2 ;
++----------------+-------+-----------------------------------+
+; Parameter Name ; Value ; Type                              ;
++----------------+-------+-----------------------------------+
+; n              ; 4     ; Signed Integer                    ;
++----------------+-------+-----------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -314,13 +294,19 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 30                          ;
-; cycloneiii_lcell_comb ; 1                           ;
-;     normal            ; 1                           ;
-;         0 data inputs ; 1                           ;
+; boundary_port         ; 31                          ;
+; cycloneiii_ff         ; 13                          ;
+;     ENA CLR           ; 8                           ;
+;     ENA SCLR          ; 5                           ;
+; cycloneiii_lcell_comb ; 14                          ;
+;     arith             ; 11                          ;
+;         3 data inputs ; 11                          ;
+;     normal            ; 3                           ;
+;         1 data inputs ; 1                           ;
+;         2 data inputs ; 2                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 0.00                        ;
-; Average LUT depth     ; 0.00                        ;
+; Max LUT depth         ; 1.70                        ;
+; Average LUT depth     ; 1.25                        ;
 +-----------------------+-----------------------------+
 
 
@@ -339,73 +325,43 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
-    Info: Processing started: Mon Apr 01 14:51:46 2019
+    Info: Processing started: Tue Apr 02 15:12:06 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off AccN_Demo -c AccN_Demo
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file regn.vhd
-    Info (12022): Found design unit 1: RegN-Behavioral File: C:/LSD/P5/Parte2/RegN.vhd Line: 11
+    Info (12022): Found design unit 1: RegN-Behavioral File: C:/LSD/P5/Parte2/RegN.vhd Line: 12
     Info (12023): Found entity 1: RegN File: C:/LSD/P5/Parte2/RegN.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file addern.vhd
     Info (12022): Found design unit 1: AdderN-Behavioral File: C:/LSD/P5/Parte2/AdderN.vhd Line: 12
     Info (12023): Found entity 1: AdderN File: C:/LSD/P5/Parte2/AdderN.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file accn.vhd
-    Info (12022): Found design unit 1: AccN-Shell File: C:/LSD/P5/Parte2/AccN.vhd Line: 14
+    Info (12022): Found design unit 1: AccN-Structural File: C:/LSD/P5/Parte2/AccN.vhd Line: 14
     Info (12023): Found entity 1: AccN File: C:/LSD/P5/Parte2/AccN.vhd Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file accn_demo.bdf
     Info (12023): Found entity 1: AccN_Demo
+Info (12021): Found 2 design units, including 1 entities, in source file accproc.vhd
+    Info (12022): Found design unit 1: AccProc-Behavioral File: C:/LSD/P5/Parte2/AccProc.vhd Line: 20
+    Info (12023): Found entity 1: AccProc File: C:/LSD/P5/Parte2/AccProc.vhd Line: 10
 Info (12127): Elaborating entity "AccN_Demo" for the top level hierarchy
-Info (12128): Elaborating entity "AccN" for hierarchy "AccN:inst1"
-Info (12129): Elaborating entity "AdderN" using architecture "A:behavioral" for hierarchy "AccN:inst1|AdderN:add" File: C:/LSD/P5/Parte2/AccN.vhd Line: 18
-Warning (10541): VHDL Signal Declaration warning at AdderN.vhd(13): used implicit default value for signal "s_op0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LSD/P5/Parte2/AdderN.vhd Line: 13
-Warning (10541): VHDL Signal Declaration warning at AdderN.vhd(14): used implicit default value for signal "s_op1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LSD/P5/Parte2/AdderN.vhd Line: 14
-Info (12129): Elaborating entity "RegN" using architecture "A:behavioral" for hierarchy "AccN:inst1|RegN:reg" File: C:/LSD/P5/Parte2/AccN.vhd Line: 23
+Info (12128): Elaborating entity "AccProc" for hierarchy "AccProc:inst2"
+Warning (10492): VHDL Process Statement warning at AccProc.vhd(27): signal "dataIn" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LSD/P5/Parte2/AccProc.vhd Line: 27
+Warning (10492): VHDL Process Statement warning at AccProc.vhd(35): signal "s_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LSD/P5/Parte2/AccProc.vhd Line: 35
+Warning (10492): VHDL Process Statement warning at AccProc.vhd(36): signal "s_out" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/LSD/P5/Parte2/AccProc.vhd Line: 36
 Info (12128): Elaborating entity "AccN" for hierarchy "AccN:inst"
 Info (12129): Elaborating entity "AdderN" using architecture "A:behavioral" for hierarchy "AccN:inst|AdderN:add" File: C:/LSD/P5/Parte2/AccN.vhd Line: 18
-Warning (10541): VHDL Signal Declaration warning at AdderN.vhd(13): used implicit default value for signal "s_op0" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LSD/P5/Parte2/AdderN.vhd Line: 13
-Warning (10541): VHDL Signal Declaration warning at AdderN.vhd(14): used implicit default value for signal "s_op1" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/LSD/P5/Parte2/AdderN.vhd Line: 14
 Info (12129): Elaborating entity "RegN" using architecture "A:behavioral" for hierarchy "AccN:inst|RegN:reg" File: C:/LSD/P5/Parte2/AccN.vhd Line: 23
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "LEDG[3]" is stuck at GND
-    Warning (13410): Pin "LEDG[2]" is stuck at GND
-    Warning (13410): Pin "LEDG[1]" is stuck at GND
-    Warning (13410): Pin "LEDG[0]" is stuck at GND
-    Warning (13410): Pin "LEDR[7]" is stuck at GND
-    Warning (13410): Pin "LEDR[6]" is stuck at GND
-    Warning (13410): Pin "LEDR[5]" is stuck at GND
-    Warning (13410): Pin "LEDR[4]" is stuck at GND
-    Warning (13410): Pin "LEDR[3]" is stuck at GND
-    Warning (13410): Pin "LEDR[2]" is stuck at GND
-    Warning (13410): Pin "LEDR[1]" is stuck at GND
-    Warning (13410): Pin "LEDR[0]" is stuck at GND
+Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 18 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "SW[15]"
-    Warning (15610): No output dependent on input pin "SW[14]"
-    Warning (15610): No output dependent on input pin "SW[13]"
-    Warning (15610): No output dependent on input pin "SW[12]"
-    Warning (15610): No output dependent on input pin "SW[11]"
-    Warning (15610): No output dependent on input pin "SW[10]"
-    Warning (15610): No output dependent on input pin "SW[9]"
-    Warning (15610): No output dependent on input pin "SW[8]"
-    Warning (15610): No output dependent on input pin "SW[7]"
-    Warning (15610): No output dependent on input pin "SW[6]"
-    Warning (15610): No output dependent on input pin "SW[5]"
-    Warning (15610): No output dependent on input pin "SW[4]"
-    Warning (15610): No output dependent on input pin "SW[3]"
-    Warning (15610): No output dependent on input pin "SW[2]"
-    Warning (15610): No output dependent on input pin "SW[1]"
-    Warning (15610): No output dependent on input pin "SW[0]"
-    Warning (15610): No output dependent on input pin "KEY[1]"
-    Warning (15610): No output dependent on input pin "KEY[0]"
-Info (21057): Implemented 30 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 45 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 18 input pins
-    Info (21059): Implemented 12 output pins
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 37 warnings
-    Info: Peak virtual memory: 4806 megabytes
-    Info: Processing ended: Mon Apr 01 14:52:03 2019
-    Info: Elapsed time: 00:00:17
-    Info: Total CPU time (on all processors): 00:00:37
+    Info (21059): Implemented 13 output pins
+    Info (21061): Implemented 14 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 4 warnings
+    Info: Peak virtual memory: 4807 megabytes
+    Info: Processing ended: Tue Apr 02 15:12:19 2019
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:27
 
 
