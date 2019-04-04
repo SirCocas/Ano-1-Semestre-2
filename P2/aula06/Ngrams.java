@@ -3,7 +3,6 @@ import java.util.Arrays;
 import java.lang.Math;
 
 public class Ngrams {
-	static String [] arr;
   public static void main(String[] args) {
     int N = 3;
     switch (args.length) {
@@ -49,32 +48,26 @@ public class Ngrams {
   }
 
   // Gera todos os N-gramas de símbolos escolhidos do alfabeto alpha.
-  public static String[] allNgrams(String alpha, int n) {
+  public static String [] allNgrams(String alpha, int n) {
     assert n >= 0;
-    int l= alpha.length();
-    if (arr==null)
-		arr = new String[(int)Math.pow((double)l,(double)n)+10]; //cria um array de tamanho l elevado a n, ou seja, com todas as posições7
-    int a=0;
-    if (n-1>3) //ou seja, a partir de n=1
+    int l = alpha.length();
+    String[] arr = {""};
+
+    if(n > 0)
     {
-		for (int i = 0; i < l; i++)
-		{
-			for (int j = 0; j < l; j++)
-			{
-				arr[a]=""+alpha.charAt(i)+allNgrams(alpha, n-1)[j];
-				a++;
-			}
-		}
-	}
-	else
-	{	
-		for (int i = 0; i < l; i++)
-			for (int j=0; j<l; j++)
-			{
-				arr[a]=""+alpha.charAt(i)+all3grams(alpha)[j];
-				a++;
-			}
-	}
+      String[] arr2 = allNgrams(alpha, (n-1));
+      arr = new String[l*arr2.length];
+
+      int c = 0;
+      for(int i = 0; i < arr2.length; i++)
+      {
+        for(int k = 0; k < l; k++)
+        {
+          arr[c] = arr2[i] + alpha.charAt(k);
+          c++;
+        }
+      }
+    }
     return arr;
   }
 }
