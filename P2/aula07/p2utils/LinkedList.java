@@ -111,9 +111,89 @@ public class LinkedList<E> {
       System.out.println(n.elem);
       print(n.next);
     }
+}
+    
+   public LinkedList<E> clone()
+    {
+		LinkedList<E> copy = new LinkedList();
+		copy.add(first, copy);
+		return copy;
+	}
+	
+	
+	public void add(Node <E> n, LinkedList A)
+	{
+		if (n!= null)
+		{
+			A.addLast(n.elem);
+			add(n.next, A);
+		}
+	}
+
+	public void addRev(Node <E> n, LinkedList A)
+	{
+		if (n!= null)
+		{
+			A.addFirst(n.elem);
+			addRev(n.next, A);
+		}
+	}
+	public LinkedList<E> reverse()
+	{
+		LinkedList<E> copy = new LinkedList();
+		copy.addRev(first, copy);
+		return copy;
+	}
+	
+	public void remove(E n)
+	{
+		first = remove(n, first);
+		if (isEmpty())
+			last=null;
+	}
+	
+	public Node <E> remove(E n, Node <E> atual)
+	{
+		if (atual.elem.equals(n))  //se o atual for igual, tromos o atual como o seguinte, diminuimos o valor do tamanho, e fazemos o teste para o novo atual
+			{   
+				atual=atual.next;
+				size--;
+				return atual;
+			}
+		
+		atual.next= remove(n,atual.next);
+		if (atual.next==null)
+			last=atual;
+		return atual;
+	
+	}
+	
+	public LinkedList<E> concatenate (LinkedList<E> lista)
+	{
+		LinkedList<E> nova = clone();
+		nova.add(lista.first, nova);
+		return nova;
+		
+	}
+	
+	
+	public E get (int compare)
+	{
+		int i=0;
+		return get(first,compare,i);
+	}
+	
+	public E get (Node <E> atual, int compare, int i)
+	{
+		if (compare == i)
+			return atual.elem;
+		i++;
+		return get (atual.next, compare, i);
+	}
+	
   }
 
   // funções adicionais pedidas no guião...
   
 
-}
+

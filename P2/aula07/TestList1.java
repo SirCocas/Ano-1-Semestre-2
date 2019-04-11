@@ -16,8 +16,9 @@ public class TestList1
     lst.removeFirst();
 
     LinkedList<Integer> cln = lst.clone();
-
-    out.println(cln.first());
+	lst.print();
+    cln.print();
+    System.out.println("Supposed to look the same");
 
     LinkedList<Integer> rev = cln.reverse();
 
@@ -32,8 +33,7 @@ public class TestList1
     another.addFirst(999);
 
     LinkedList<Integer> conc = rev.concatenate(another);
-
-    for(int p=0; p<conc.size(); p++) 
+   for(int p=0; p<conc.size(); p++) 
       out.println(conc.get(p));
   }
 }
