@@ -19,6 +19,7 @@ public class SocialNetwork {
 
     this.sizeExpansion = sizeExpansion;
     members = new Person[maxSize];
+    requests = new FriendshipRequest[maxSize];
   }
 
   /**
@@ -71,12 +72,20 @@ public class SocialNetwork {
     System.arraycopy(members,0,newmembers,0,numMembers);
     members = newmembers;
   }
+  
+  private void extendRequestArray()
+  {
+	  FriendshipRequest[] novo = new FriendshipRequest[requests.length + sizeExpansion];
+	  System.arraycopy(requests, 0, novo, 0, numRequests());
+	  requests = novo;
+  }
 
   private Person[] members;
   private int numMembers = 0;
   private final int sizeExpansion;
+  private int numRequests = 0;
 
-  private FriendshipRequest[] requests = null;
+  private FriendshipRequest[] requests;
 
   /**
    * Actualiza o estado de um pedido de amizade.
@@ -152,6 +161,15 @@ public class SocialNetwork {
    * @param m2 Nome do membro que é destinatario do pedido.
    */
   public void addFriendshipRequest(String m1, String m2) {
+	  assert (numRequests>= 0);
+	  assert (members.length > 2);
+	  if (numRequests == requests.length-1)
+	  {
+		  extendRequestArray();
+	  }
+	  requests[numRequests] = new FriendshipRequest(memberIndex(m1), memberIndex(m2));
+	  numRequests ++;
+	  assert (numRequests>0);
     //...
 
   }
@@ -159,7 +177,8 @@ public class SocialNetwork {
   /**
    * Devolve o número de pedidos de amizade existentes.
    */
-  public int numRequests() {
+  public int numRequests() { 
+	  return numRequests;
     //...
 
   }
@@ -169,6 +188,7 @@ public class SocialNetwork {
    * armazenar com a capacidade actual.
    */
   public int maxNumRequests() {
+	  return requests.length;
     //...
 
   }
@@ -180,6 +200,13 @@ public class SocialNetwork {
    * @param memberName Nome do membro.
    */
   public int numPendingRequests(String memberName) {
+	  int contador=0;
+	  for (int i = 0; i < numRequests; i++)
+	  {
+		if (requests[i].pending() && (requests[i].requester()==memberIndex(memberName) || requests[i].requested()==memberIndex(memberName))  ) 
+			contador++;
+	  }
+	  return contador;
     //...
 
   }
@@ -191,6 +218,27 @@ public class SocialNetwork {
    * @param memberName Nome do membro da rede
    */
   public String oldestFriend(String memberName) {
+	  int contador = 0;
+	  int maisvelho=0;
+	  int ano =20000000;
+	  for (int i=0; i<numRequests; i++)  
+	  {
+		  if ((requests[i].accepted()) && ((requests[i].requester() == memberIndex(memberName)) ))   //usamos o requests[i].requester() como índice no array dos membros
+			if (members[requests[i].requested()].birthYear() < ano)
+			{
+				ano = members[requests[i].requested()].birthYear();
+				maisvelho= requests[i].requested();
+			}
+		  if ((requests[i].accepted())  && (requests[i].requested() == memberIndex(memberName)))
+			  if (members[requests[i].requester()].birthYear() < ano)
+				{
+					ano = members[requests[i].requester()].birthYear();
+					maisvelho= requests[i].requester();
+				}
+	  }
+	  if (ano!= 20000000) //ou seja, o ano mudou
+		return members[maisvelho].name();
+	  return null;
     //...
 
   }

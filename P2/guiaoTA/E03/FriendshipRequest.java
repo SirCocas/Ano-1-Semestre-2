@@ -16,7 +16,7 @@ public class FriendshipRequest {
    * @param status    Novo estado a registar
    */
   public void setStatus(String status) {
-
+	assert (pending() || accepted() || cancelled() || rejected()); 
     this.status = status;
   }
 
