@@ -54,8 +54,14 @@ public class ListSort {
       // Now, take each element from lst and append it
       // to the smaller list, if element < pivot, or
       // to the greater list, otherwise.
-      //... FILL IN THE CODE ...
-
+      while(!lst.isEmpty())
+      {
+		  if (lst.first().compareTo(pivot)>0)
+			smaller.addLast(lst.first());
+		else
+			greater.addLast(lst.first());
+		lst.removeFirst();
+	  }
       // The lst should be empty now:
       assert lst.isEmpty();
 
@@ -65,13 +71,23 @@ public class ListSort {
       
       // Transfer smaller elements back to lst:
       //... FILL IN THE CODE ...
-      
+      while(!smaller.isEmpty())
+      {
+		  lst.addLast(smaller.first());
+		  smaller.removeFirst();
+	  }
       // Append the pivot:
       lst.addLast(pivot);
       
       // Transfer greater elements back to lst:
       //... FILL IN THE CODE ...
+      while (!greater.isEmpty())
+      {
+		  lst.addLast(greater.first());
+		  greater.removeFirst();
+	  }
     }
+    
   }
 
 }

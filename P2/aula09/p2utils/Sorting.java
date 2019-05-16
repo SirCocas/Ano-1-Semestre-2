@@ -46,8 +46,10 @@ public class Sorting {
 
     for (int i=start; i<end-1; i++) { // For each element (except the last):
       for (int j=i+1; j<end; j++) {   // Scan every following element
+		comparisonCount++;
         if (a[j] < a[i]) {            // compare them
           swap(a, i, j);              // if necessary, swap them
+          assignmentCount++;
         }
       }
     }
@@ -64,8 +66,10 @@ public class Sorting {
     while (start < end-1) {
       int last = start;
       for (int i=start; i<end-1; i++) {
+		comparisonCount++;
         if (a[i] > a[i+1]) {
           swap(a, i, i+1);
+          assignmentCount++;
           last = i;   // store index of the last swap
         }
       }
@@ -91,18 +95,71 @@ public class Sorting {
 
   public static void insertionSort(int[] a, int start, int end) {
     //...
-
+	assert(validSubarray(a, start, end));
+	for (int i = start+1; i<end; i++)
+	{
+		int j;
+		int v = a[i];
+		for (j = i-1; j>= start && a[j] > v; j--)
+		{
+			comparisonCount++;
+			assignmentCount++;
+			a[j+1] = a[j];
+		}
+		assignmentCount++;
+		a[j+1] = v;
+	}
+	assert isSorted(a, start, end);
   }
 
   public static void mergeSort(int[] a, int start, int end) {
     //...
-
+    assert validSubarray(a, start, end);
+    comparisonCount++;
+    if (end-start>1)
+    {
+		int middle = (start+end)/2;
+		mergeSort(a, start, middle);
+		mergeSort(a, middle, end);
+		mergeSubarrays(a, start, middle, end);
+	}
+	assert isSorted(a, start, end);
+  }
+  static void mergeSubarrays(int [] a, int start, int middle, int end)
+  {
+	  int [] b = new int [end-start];
+	  int i1 = start;
+	  int i2 = middle;
+	  int j = 0;
+	  while (i1 < middle && i2 < end)
+	  {
+		  comparisonCount++;
+		  assignmentCount++;
+		  if(a[i1] < a[i2])
+			b[j++] = a[i1++];
+		else 
+			b[j++] = a[i2++];
+	  }
+	  comparisonCount++;
+	  while (i1 < middle)
+	  {
+		assignmentCount++;
+		b[j++] = a[i1++];
+	 }
+	 comparisonCount++;
+	  while (i2 < end)
+	  {
+		b[j++] = a[i2++];
+		assignmentCount++;
+	}
+	  arraycopy(b,0,a,start,end-start);
   }
 
   // Test if [start, end[ defines a valid interval of indices in array a.
   public static boolean validSubarray(int[] a, int start, int end) {
     return a != null && 0 <= start && start <= end && end <= a.length;
   }
+  
 
   public static boolean isSorted(int[] a, int start, int end) {
     assert validSubarray(a, start, end);
@@ -118,8 +175,80 @@ public class Sorting {
   public static <E extends Comparable<E>>
   void mergeSort(E[] a, int start, int end) {
     //...
-
+	assert validSubarray(a, start, end);
+	if (end-start > 1)
+	{
+		int middle = (start+end)/2;
+		mergeSort(a, start, middle);
+		mergeSort(a, middle, end);
+		mergeSubarrays(a, start, middle, end);
+	}
+	assert isSorted(a, start, end);
   }
-
+  public static <E extends Comparable<E>>
+  void mergeSubarrays(E[] a, int start, int middle, int end)
+  {
+	  Object[] b = new  Object[end-start];
+	  int i1= start;
+	  int i2 = middle;
+	  int j=0;
+	  while (i1 < middle && i2 < end)
+	  {
+		  if (a[i1].compareTo(a[i2])<0)
+				b[j++] = a[i1++];
+		  else 
+				b[j++] = a[i2++];
+	  }
+	  while (i1<middle)
+		  b[j++] = a[i1++];
+	  while (i2 < end)
+		  b[j++] = a[i2++];
+	  arraycopy(b, 0, a, start, end-start);
+  }
+  public static <E extends Comparable<E>>
+  boolean validSubarray(E[] a, int start, int end) {
+    return a != null && 0 <= start && start <= end && end <= a.length;
+  }
+  
+  public static <E extends Comparable<E>> boolean isSorted(E[] a, int start, int end) {
+    assert validSubarray(a, start, end);
+    boolean result = true;
+    for(int i = start; result && i < end-1; i++)
+      result = a[i] .compareTo(a[i+1])<=0;
+    return result;
+  }
+  
+  public static String[] sortString(String [] a){
+	int contador = 0;
+	for (int i=0; i<a.length; i++)
+	{
+		for (int c=i+1; c<a.length; c++)
+		{
+			if (! a[i].equals(a[c]))
+			{
+				contador++;
+				break;
+			}
+		}
+	}
+	String [] ordenar = new String[contador];
+	for (int i=0; i<contador; i++)
+	{
+		ordenar[i]="";
+	}
+	for (int i=0; (i<ordenar.length) ; i++)
+	{
+		for (int c=i; c<a.length ; c++)    //só faz sentido comparar com os que têm indice acima do indice do array que estamos a criar
+		{
+			if (! ordenar[i].equals(a[c]) )
+			{
+				ordenar[i] =  a[c];
+				break;
+			}
+		}
+	}
+	mergeSort(ordenar,0, ordenar.length);
+	return ordenar;
+}
 }
 

@@ -1,5 +1,5 @@
 import static java.lang.System.*;
-import java.io.File;
+import java.io.*;
 import java.util.Scanner;
 import java.io.IOException;
 
@@ -7,7 +7,7 @@ import static p2utils.Sorting.*;
 
 public class GetWords
 {
-  public static void main(String[] args) {
+  public static void main(String[] args)  throws IOException{ 
     if (args.length != 1) {
       err.println("Usage: java GetWords <file>");
       exit(1);
@@ -16,6 +16,12 @@ public class GetWords
     String[] words = extractWords(fin);
     for(int i = 0; i < words.length; i++)
       out.printf("[%05d] %s\n", i+1, words[i]);
+      PrintWriter out = new PrintWriter(fin);
+     for (int i=0; i<words.length; i++)
+     {
+		 out.println(words[i]);
+	}
+	out.close();
   }
 
 
@@ -43,7 +49,7 @@ public class GetWords
         i++;
       }
       scf.close();
-
+	  result = sortString(result);
       return result;
     }
     catch (IOException e) {

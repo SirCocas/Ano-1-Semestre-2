@@ -1,4 +1,3 @@
-
 public class SortedListInt
 {
   // private attributes
@@ -60,5 +59,31 @@ public class SortedListInt
     if (n.elem < prev.elem) return false;
     return isSorted(n,n.next);
   }
+  
+  public void print()
+  {
+		print(first);
+	}
+	private void print(NodeInt nodule)
+	{
+		System.out.println(nodule.elem);
+		print(nodule.next);
+	}
+	
+	public void sort()
+	{
+		sort(first, first.next);
+	}
+	public void sort(NodeInt nodule, NodeInt nextNod)
+	{
+		if (nodule.elem > nextNod.elem)
+		{
+			NodeInt temp = nextNod;
+			nextNod = nodule;
+			nodule = temp;
+			sort(nodule, nextNod);
+		}
+		sort(nodule, nodule.next);
+	}
 
 }

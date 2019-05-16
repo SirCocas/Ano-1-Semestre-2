@@ -8,7 +8,10 @@ public class SumArgs
 
     // Preencher arr com os valores obtidos dos argumentos:
     //...
-
+	for (int i=0; i<args.length; i++)
+	{
+		arr[i]= Double.parseDouble(args[i]);
+	}
     // Calcular a soma com função recursiva:
     double total = sumRec(arr, 0, arr.length);
     out.printf("sum of arguments = %f\n", total);
@@ -29,9 +32,17 @@ public class SumArgs
   }
 
   // same thing, recursive:
-  public static double sumRec(double[] arr, int start, int end) {
+  public static double sumRec(double[] arr, int start, int end) {  //start= current position, end = array size
+	double sum=0;
+	if (end -1>=0)    
+	{
+		sum= sumRec(arr, 0, end-1)+arr[end-1];   //adicionamos ao array menos a ultima posicao a ultima posicao
+	}
+	return sum;
     //...
   }
 
 }
+
+
 
