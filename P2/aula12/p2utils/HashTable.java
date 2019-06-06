@@ -99,5 +99,34 @@ public class HashTable<E> {
   }
 
   // fazer aqui as funções pedidas no guião...
+  
+	public String [] keys()
+	{
+		String [] keys = keys(0,0, keys);
+		return keys;
+	}
+	private String [] keys(int ArrPos, int keyPos, String [] keys)
+	{
+		if (ArrPos>=size)
+			return keys;
+			
+		keys[keyPos] = array[ArrPos].key;
+		return keys (ArrPos+1, keyPos+1, keys);
+	}
+	
+	public String toString()
+	{
+		String r="";
+		return toString(r);
+	}
 
+	private String toString(String word)
+	{
+		String [] arr = keys();
+		for (int i = 0; i < arr.length; i++)
+		{
+			word+="("+arr[i] + ","+get(arr[i])+")";
+		}
+		
+	}
 }

@@ -58,6 +58,7 @@ public class KeyValueList<E> {
     return get(n.next, k);
   }
 
+	
   /** Removes the given key and associated element.
    * @param  k  a key
    */
@@ -128,6 +129,13 @@ public class KeyValueList<E> {
   public String toString(String left, String sep, String right) {
     // Complete the function (11.2)
     //...
+    return toString(left, first, sep, right);
+  }
+  private String toString(String left,KeyValueNode<E> n, String sep, String right )
+  {
+	  if (n!=null)
+		return (left+n.key+sep+get(n.key)+right)+ toString(left, n.next, sep, right);
+		return "";
   }
 
 }

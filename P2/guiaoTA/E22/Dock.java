@@ -36,18 +36,27 @@ public class Dock {
 
   // a new container arrives and must be added to the queue
   public void enterContainer(Container c) {
+	  acessExtension.in(c);
     //...
 
   }
 
   // top container in stack is removed (it will be shipped)
   public Container shipContainer() {
+	  Container high = accessExtension.top();
+	  accessExtension.pop();
+	  return high;
     //...
 
   }
 
   // Moves containers from the accessExtension to the dock stack
   public void moveFromAccessToStack() {
+	  while (containerStack.size() < maxStack && !accessExtension.isEmpty())
+	  {
+		  containerStack.push(AccessExtension.peek())
+		  AccessExtension.out();
+	  }
     //...
 
   }
@@ -59,6 +68,18 @@ public class Dock {
   public void insertFirstInStack() {
     assert !stackFull() && !accessExtensionEmpty();
     //...
+     Container c = accessExtension.peek();   //guardamos o primeiro
+    accessExtension.out();                          //tiramos o primeiro
+    Stack<Container> tmp = new Stack<>(); 
+    while ( !containerStack.isEmpty() &&   //enquanto a pilha nao está vazia e a distancia do do topo é maior do que o c
+        containerStack.top().distance>c.distance) {
+      tmp.push(containerStack.top());  //adicionamos ao temporario o do topo e retiramo-lo
+      containerStack.pop();
+    }
+    containerStack.push(c);    //adicionamos à pilha normal o c
+    while (!tmp.isEmpty()) {   //enquanto o temporario nao esta vazio vamos adicionando aos containers e tiramos o primeiro
+      containerStack.push(tmp.top());  
+      tmp.pop();
 
   }
 }

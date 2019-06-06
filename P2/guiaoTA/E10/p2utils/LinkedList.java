@@ -96,7 +96,123 @@ public class LinkedList<E> {
     }
     return "[" + s + "]";
   }
-
+  
+  public int count (E e)
+  {
+	  return count(e, first, 0);
+  }
+  
+  public int count (E e, Node <E> atual, int i)
+  {
+	  if (atual.elem.equals(e))
+		i++;
+	  if (atual== last)
+		return i;
+	  return count(e, atual.next, i);
+	  
+  }
+  
+  public int indexOf (int compare)
+	{
+		int i=0;
+		return indexOf(first,compare,i);
+	}
+	
+	public int indexOf (Node <E> atual, int compare, int i)
+	{
+		if (atual != null)
+		{
+			if (compare == i)
+				return i;
+			i++;
+			return indexOf (atual.next, compare, i);
+		}
+		return -1;
+	}
+	
+public LinkedList<E> cloneReplace(E atual, E novo)
+    {
+		LinkedList<E> copy = new LinkedList();
+		copy.add(first,  atual, novo);
+		return copy;
+	}
+	
+	
+	public void add(Node <E> n,  E velho, E novo)
+	{
+		Node <E> temp = new Node <>(novo);
+		if (n!= null)
+		{
+			if (n.elem.equals(velho))
+				addLast(novo);
+			else
+				addLast(n.elem);
+			add(n.next, velho, novo);
+		}
+	}
+	
+	public LinkedList<E> cloneSublist(int start, int end)
+	{
+		LinkedList<E> lista = new LinkedList<E>();
+		lista.addSubList(first, start, end, 0);
+		return lista;
+	}
+	
+	public void addSubList(Node <E> n,  int start,int end, int i)
+	{
+		if (n!= null)
+		{
+			if ((i>=start) && (i<end ))
+			{
+				addLast(n.elem);
+			}
+			i++;
+			addSubList(n.next, start, end, i);
+		}
+	}
+	
+	public LinkedList<E> cloneExceptSublist(int start, int end)
+	{
+		LinkedList<E> lista = new LinkedList<E>();
+		lista.addExceptSubList(first, start, end, 0);
+		return lista;
+	}
+	
+	public void addExceptSubList(Node <E> n,  int start,int end, int i)
+	{
+		if (n!= null)
+		{
+			if (!((i>=start) && (i<end )))
+			{
+				addLast(n.elem);
+			}
+			i++;
+			addExceptSubList(n.next, start, end, i);
+		}
+	}
+	
+	public void removeSublist(int start, int end)
+	{
+		int i=0;
+		removeSublist(start, end, 0, first);
+	}
+	
+	public void removeSublist(int start, int end, int i, Node<E> atual)
+	{
+		if (atual!= null)
+		{
+			if ((i>=start) && (i<end ))
+			{
+				atual = atual.next;
+				i++;
+				size--;
+				removeSublist(start, end, i,atual);
+				
+			}
+			removeSublist(start, end, i++,atual.next);
+		}
+	}
+    
   // funcoes adicionais pedidas no guião...
 
 

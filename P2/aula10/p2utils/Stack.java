@@ -1,4 +1,5 @@
 package p2utils;
+import java.lang.String;
 
 public class Stack<E> {
 
@@ -29,5 +30,24 @@ public class Stack<E> {
 
   // Acrescente aqui outras funções necessárias:
   //...
+  public static String reverseToString (Stack<Integer> list)
+  {
+	  int [] arr = new int[list.size()];
+	  String word = "[";
+	  int c=0;
+	  while(! list.isEmpty())
+	  {
+        word=word+" "+(list.top()+1);
+        arr[c] = list.top();
+        c++;
+        list.pop();
+	  }
+	  word=word+"]";
+	  for(int i=0; i<arr.length; i++)
+	  {
+		  list.push(arr[i]);
+	 }
+	 return word;
+	}
 
 }

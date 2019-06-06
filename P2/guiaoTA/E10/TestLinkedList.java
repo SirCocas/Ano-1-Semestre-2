@@ -33,11 +33,11 @@ public class TestLinkedList
     lst.removeSublist(7,14);
     out.println(lst);
     out.println(lst.size());
-
+/*
     lst.removeSublist(12,14);
     out.println(lst);
     out.println(lst.size());
-    out.println(lst.last());
+    out.println(lst.last());*/
 
   }   
 

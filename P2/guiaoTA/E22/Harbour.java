@@ -56,12 +56,20 @@ public class Harbour {
 
   // total number of containers
   public int count() {
+	  int count = 0;
+	  for (int i = 0; i < docks.length; i++)
+	  {
+		  count = count + docks[i].count()
+	  }
+	  return count;
+	  
     //...
 
   }
 
   // number of containers for a given destination
   public int countToDestination(String destin) {
+	  return destinations.get(destin);
     //...
 
   }
@@ -69,7 +77,7 @@ public class Harbour {
   // array containing destinations of existing containers
   public String[] currentDestinations() {
     //...
-
+	return destinations.keys();
   }
 
   // given a dock, picks the first container
